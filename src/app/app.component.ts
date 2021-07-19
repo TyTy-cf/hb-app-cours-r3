@@ -28,12 +28,11 @@ export class AppComponent {
 
     this.car = new Car();
     this.car.brand = 'Audi';
+    this.exempleExoUn();
   }
 
-  variables(user: User): void {
-    const day = 1;
-
-    // this.year = 2021;
+  exempleExoUn(): void {
+    console.log('Résultat exo 1 : ');
   }
 
 }

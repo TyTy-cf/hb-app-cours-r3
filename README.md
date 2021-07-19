@@ -1,27 +1,29 @@
-# AppCours
+## Exo 1 : 19/07
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+### 1.
+A partir d’un âge, on doit indiquer l’année de naissance
 
-## Development server
+### 2.
+A partir de ce tableau [ 12, 15, 19, 2], calculer la moyenne des valeurs.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### 3.
+A partir d’un prix HT unitaire d’un produit, ainsi que le nombre de produit. On veut connaitre le total TTC arrondi à 2 chiffres après la virgule.
 
-## Code scaffolding
+### 4.
+A partir de la température d’un volume d’eau, on veut savoir dans quel état est l’eau (solide, liquide ou gaz) (positif : liquide, négatif : solide, au dela de 70° [indicatif] : gaz)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### 5.
+On souhaite stocker les notes d'étudiants, vous utiliserez un tableau associatif pour ça
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Données :
 
-## Running unit tests
+Albert : 12, 8, 9, 7, 13
+Michel : 14, 13, 12, 11, 10
+Vincent : 17, 16, 15, 18, 13
+Faite une fonction qui prend en paramètre un tableau de note et permet de calculer la moyenne de l'étudiant
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 6.
+Faire une fonction qui prend 2 arguments en paramètres : un prix et un pourcentage.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+La fonction doit renvoyer le prix augmenté avec le pourcentage
