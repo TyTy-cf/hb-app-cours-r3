@@ -27,3 +27,29 @@ Faite une fonction qui prend en paramètre un tableau de note et permet de calcu
 Faire une fonction qui prend 2 arguments en paramètres : un prix et un pourcentage.
 
 La fonction doit renvoyer le prix augmenté avec le pourcentage
+
+### 7.
+
+Écrivez une fonction pour supprimer les doublons d’un tableau : Exemple : [1, 2, 2, 3, 3, 3, 4, 5, 5] Résultat attendu : [1, 2, 3, 4, 5]
+
+### 8.
+
+Avec le moins de lignes de code possible, proposez moi un algorithme qui, pour un nombre donné, affiche la table de multiplication liée. Par exemple : Si je demande 1, je veux voir :
+
+1x1 = 1
+1x2 = 2
+etc Et ce jusqu'à 12
+
+### 9.
+
+Faites une fonction qui prend en argument une chaîne de caractères (LONGUE) Cette fonction doit afficher les 15 premiers caractères puis '...' Par exemple :
+
+Je passe la chaîne : 'Lorem quisque class vestibulum'
+La fonction doit afficher 'Lorem quisque c...'
+
+### 10.
+
+Faites une fonction checkPassword, dont le but est de vérifier la validité d'un mot de passe, qui sera pris en argument Un mot de passe est considéré valide lorsqu'il fait plus de 9 caractères, et qu'il contient au moins le caratère '@' La fonction renverra un booléen pour indiquer la validité du mot de passe
+
+
+
