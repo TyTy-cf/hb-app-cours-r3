@@ -81,6 +81,7 @@ Par exemple :
 
 Chat donne : chafeat
 
+## Programmation Objet (utilisation de classes)
 ### 13.
 
 Créer une interface Boisson, elle est caractérisée par :
@@ -90,6 +91,35 @@ Créer une interface Boisson, elle est caractérisée par :
 
 Créer une classe Bar, elle est caractérisée par un tableau de boisson, qui représente la carte du bar
 Un bar a aussi un nom
+
 Faites une fonction, dans la classe Bar, qui permet d'afficher la "carte" du bar en console.log
+
+
+### 14.
+
+Nous allons faire un jeu de Yatzee : https://fr.wikipedia.org/wiki/Yahtzee
+
+Comment feriez-vous pour le modéliser avec en objet ?
+Réfléchissez à ça, et appelez-moi lorsque vous avez une idée, que je vous la valide (ou pas !)
+
+Une fois la "solution" trouvée :
+- Faire une fonction qui effectue un lancé (l'affiche via un console.log)
+- Faire une fonction qui informe du résultat effectué par l'utilisateur
+  (PS : pour le moment ne pensez pas aux suites !!!!)
+
+
+### 15.
+
+Une fois les résultats "standard" donnés, faite le pour les suites.
+
+
+### 16.
+
+Et maintenant... En prévision de la suite, comment feriez-vous pour faire un échiquier ?
+
+Pareil, réfléchissez à comment le faire en objet.
+
+Je veux juste l'échiquier pour l'instant : ![img.png](img.png)
+
 
 
