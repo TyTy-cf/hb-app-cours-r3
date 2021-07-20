@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {User} from "../model/user";
 import {Car} from "../model/car";
 import {Student} from "../model/student";
+import {min} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -61,6 +62,18 @@ export class AppComponent {
 
     // Exo 6 :
     this.exoSix();
+
+    // Exo 7 :
+    this.exoSept();
+
+    // Exo 9 :
+    console.log('Exo 9 : ' + this.exoNeuf());
+
+    // Exo 10 :
+    this.exoDix();
+
+    // Exo 11 :
+    this.exoOnze();
   }
 
   private exoUn(age: number): void {
@@ -122,5 +135,62 @@ export class AppComponent {
 
   private increasePrice(price: number, percent: number): number {
     return Math.round(price * (1 + percent/100) * 100)/100;
+  }
+
+  private exoSept(): void {
+    const arrayRemove = [5, 6, 8, 2, 1, 2, 2, 3, 3, 3, 4, 5, 5];
+    let arrayTmp: number[] = [];
+    for (const element of arrayRemove) {
+      // find cherche un élément qui suis la condition de la fonction fléchée
+      if (!arrayTmp.find((elem) => elem === element)) {
+        arrayTmp.push(element);
+      }
+    }
+    console.log(arrayTmp);
+  }
+
+  private exoNeuf(): string {
+    const tmpValue = 'Lorem quisque class vestibulum';
+    let dottedString = tmpValue;
+    if (tmpValue.length > 15) {
+      dottedString = tmpValue.substr(0, 15) + '...';
+    }
+    return dottedString;
+  }
+
+  private exoDix(): void {
+    const password = 'zboui@';
+    console.log('Exo 10 : le password ' + password + ' est ' + this.isBadPassword(password));
+  }
+
+  private isBadPassword(password: string): boolean {
+    return password.length > 9 && password.includes('@');
+  }
+
+
+  private exoOnze(): void {
+    console.log('Exo 11 : ' + this.timeConverter(225000));
+  }
+
+  private timeConverter(milliSec: number): string {
+    const ms = milliSec % 1000;
+    const secondsMins = Math.floor(milliSec / 1000);
+    const seconds = secondsMins % 60;
+    const minutes = Math.floor(secondsMins / 60) % 60;
+    let strMins: string = minutes + '';
+    if (minutes < 10) {
+      strMins = '0' + minutes;
+    }
+    let strMs: string = ms + '';
+    if (ms < 10) {
+      strMs = '00' + ms;
+    } else if (ms < 100) {
+      strMs = '0' + ms;
+    }
+    let strSec: string = seconds + '';
+    if (seconds < 10) {
+      strSec = '0' + seconds;
+    }
+    return strMins + ':' + strSec + '"' + strMs;
   }
 }
