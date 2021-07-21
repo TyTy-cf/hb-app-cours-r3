@@ -196,8 +196,21 @@ Un Rogue :
 
 
 
+### 18. Suite TP héritage
 
 
+Ajouter une fonction "attack" dans la classe Hero, elle prend en paramètre un autre Hero
+
+
+Le but de cette méthode est que le héro courant attaque l'autre héro, pour cela :
+- Déterminer les dégâts du héro : un random entre ses dégâts min et max
+- Déterminer si le coup est critique, un coup critique inflige 50% en plus des dégâts normaux
+- Puis le coup est réduit par la défense du héro attaqué, la défense un pourcentage
+- Puis le héro attaqué perd ses points de vie
+
+
+Enfin : 
+- Simuler un combat entre deux héros, dont le premier à attaquer est déterminé aléatoirement
 
 
 
