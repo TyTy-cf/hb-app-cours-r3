@@ -5,6 +5,11 @@ export abstract class Piece {
   protected _name!: string;
   protected _image!: string;
 
+  protected constructor(name: string, color: string) {
+    this._color = color;
+    this._name = name;
+  }
+
   get color(): string {
     return this._color;
   }
