@@ -4,6 +4,9 @@ import {Car} from "../model/car";
 import {Student} from "../model/student";
 import {min} from "rxjs/operators";
 import {Bar} from "../model/bar";
+import {Pion} from "../model/Chess/pion";
+import {Tour} from "../model/Chess/tour";
+import {Piece} from "../model/Chess/piece";
 
 @Component({
   selector: 'app-root',
@@ -81,6 +84,9 @@ export class AppComponent {
 
     // Exo 13 :
     this.exoTreize();
+
+    // Exemple Chess:
+    this.exempleChess();
   }
 
   private exoUn(age: number): void {
@@ -243,5 +249,14 @@ export class AppComponent {
     let bar2 = new Bar();
     bar2.name = 'Oups';
     console.log(bar2.name);
+  }
+
+  private exempleChess(): void {
+    let pionB = new Pion('noir');
+    let tourB = new Tour('noir');
+    const pieces: Piece[] = [pionB, tourB];
+    for (const piece of pieces) {
+      piece.move();
+    }
   }
 }
