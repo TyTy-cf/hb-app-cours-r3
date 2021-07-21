@@ -212,6 +212,16 @@ Le but de cette méthode est que le héro courant attaque l'autre héro, pour ce
 Enfin : 
 - Simuler un combat entre deux héros, dont le premier à attaquer est déterminé aléatoirement
 
+### 19. Pour aller plus loin...
+
+Simuler une GurubashiArena (peut-être faire une classe ?)
+
+Le but est de générer aléatoirement 3 héros (peut importe lesquels, et le nom aussi)
+
+Ils vont tous taper quelqu'un d'autres (sauf eux) de manière aléatoire, chacun à leur tour
+
+Le combat continue, jusqu'à ce qu'il n'en reste qu'un
+
 
 
 
