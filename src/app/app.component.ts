@@ -11,6 +11,7 @@ import {privateEntriesToIndex} from "@angular/compiler-cli/src/metadata/index_wr
 import {Battleground} from "../model/rpg/Battleground";
 import {Mage} from "../model/rpg/mage";
 import {Rogue} from "../model/rpg/rogue";
+import {ArenaGurubashi} from "../model/rpg/arena_gurubashi";
 
 @Component({
   selector: 'app-root',
@@ -278,5 +279,10 @@ export class AppComponent {
     battle.levelUp();
     battle.displayHero();
     battle.fight();
+
+    let arena = new ArenaGurubashi(
+      'Kevin', 'Sebastien', 'Jim', 'Leo', 'Vincent', 'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane', 'Quentin', 'Alban'
+    );
+    arena.levelUp(10);
   }
 }
