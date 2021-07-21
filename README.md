@@ -122,4 +122,84 @@ Pareil, réfléchissez à comment le faire en objet.
 Je veux juste l'échiquier pour l'instant : ![img.png](img.png)
 
 
+### 17. Héritage
+
+Class : Hero, caractérisé par :
+
+- Son nom
+- Ses points de vie (actuel)
+- Ses points de vie (maximum)
+- Dégâts max
+- Dégâts min
+- Son niveau
+- Defense
+- Chance de coup critique (on partira sur un number assimilé à un %)
+
+Tous les Héros commencent niveau 1
+
+Et on par défaut 5% de chance de coup critique
+
+Créer ensuite les classes suivantes :
+
+
+- Mage, un Mage est un Hero
+- Un mage commence avec les stats suivantes :
+ - 285 points de vie
+ - 45 dégâts min et 48 dégâts max
+ - 2 de défense
+
+
+
+- Warrior, un Warrior est un Hero
+- Un Warrior commence avec les stats suivantes :
+- 375 points de vie
+- 42 dégâts min et 45 dégâts max
+- 3 de défense
+ 
+
+
+- Rogue, un Rogue est un Hero
+- Un Rogue commence avec les stats suivantes :
+- 300 points de vie
+- 40 dégâts min et 47 dégâts max
+- 3 de défense
+
+
+
+Par la suite... Ajouter une fonction de levelUp à la classe Héros
+Tous les héros :
+- Monte leur niveau de 1
+- Gagne 0.25% de coup critique
+
+
+Et de modifier les caractéristiques de nos héros en fonction de leur classe
+
+Un Mage :
+- Gagne 25 points de vie par montée de niveau
+- Gagne 4 points de dégâts
+- Gagne 1 point de défense si son niveau un multiple de 5
+
+
+
+Un Warrior :
+- Gagne 47 points de vie par montée de niveau
+- Gagne 2 points de dégâts
+- Gagne 1 point de défense si son niveau un multiple de 3
+
+
+
+Un Rogue :
+- Gagne 33 points de vie par montée de niveau
+- Gagne 4 points de dégâts
+- Gagne 1 point de défense si son niveau un multiple de 4
+- Le Rogue va gagner 0.33% de crit par niveau, au lieu de 0.25%
+
+
+
+
+
+
+
+
+
 
