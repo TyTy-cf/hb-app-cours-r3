@@ -3,6 +3,7 @@ import {User} from "../model/user";
 import {Car} from "../model/car";
 import {Student} from "../model/student";
 import {min} from "rxjs/operators";
+import {Bar} from "../model/bar";
 
 @Component({
   selector: 'app-root',
@@ -74,6 +75,12 @@ export class AppComponent {
 
     // Exo 11 :
     this.exoOnze();
+
+    // Exo 12 :
+    this.exoDouze();
+
+    // Exo 13 :
+    this.exoTreize();
   }
 
   private exoUn(age: number): void {
@@ -192,5 +199,49 @@ export class AppComponent {
       strSec = '0' + seconds;
     }
     return strMins + ':' + strSec + '"' + strMs;
+  }
+
+  exoDouze(): void {
+    const wovels = ['a', 'e', 'i', 'o', 'u', 'y'];
+    const myString = 'Chat';
+    let finalString = '';
+    for (const letter of myString) {
+      finalString += letter;
+      if (letter.match(/[aeiouy]/)) {
+        finalString += 'fe' + letter;
+      }
+      // if (wovels.includes(letter)) {
+      //   finalString += 'fe' + letter;
+      // }
+    }
+    console.log('Exo 12 : ' + finalString);
+    }
+
+  private exoTreize(): void {
+    let bar = new Bar();
+    bar.name = 'Oui';
+    bar.boissons = [
+      {
+        name: 'Coca Cola',
+        price: 5,
+        alcohol: false,
+      },
+      {
+        name: 'Bière pression 50',
+        price: 7,
+        alcohol: true,
+      },
+    ];
+    bar.snacks = [
+      {
+        name: 'Saucisson',
+        price: 6,
+      },
+    ];
+    console.log(bar.displayMenu());
+    console.log(bar.name);
+    let bar2 = new Bar();
+    bar2.name = 'Oups';
+    console.log(bar2.name);
   }
 }
