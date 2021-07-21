@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import {User} from "../model/user";
-import {Car} from "../model/car";
-import {Student} from "../model/student";
-import {min} from "rxjs/operators";
-import {Bar} from "../model/bar";
-import {Pion} from "../model/Chess/pion";
-import {Tour} from "../model/Chess/tour";
-import {Piece} from "../model/Chess/piece";
-import {privateEntriesToIndex} from "@angular/compiler-cli/src/metadata/index_writer";
-import {Battleground} from "../model/rpg/Battleground";
-import {Mage} from "../model/rpg/mage";
-import {Rogue} from "../model/rpg/rogue";
-import {ArenaGurubashi} from "../model/rpg/arena_gurubashi";
+import {User} from '../model/user';
+import {Car} from '../model/car';
+import {Student} from '../model/student';
+import {Bar} from '../model/bar';
+import {Pion} from '../model/chess/pion';
+import {Tour} from '../model/chess/tour';
+import {Battleground} from '../model/rpg/Battleground';
+import {Mage} from '../model/rpg/mage';
+import {Rogue} from '../model/rpg/rogue';
+import {ArenaGurubashi} from '../model/rpg/arena_gurubashi';
+// @ts-ignore
+import {Piece} from '../model/chess/piece';
+import {Yatzee} from '../model/yatzee/yatzee';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +24,7 @@ export class AppComponent {
   public user: User;
   public car: Car;
   public students: Student[];
+  public yatzee: Yatzee;
 
   constructor() {
     const piou = 'Jhon';
@@ -90,11 +91,17 @@ export class AppComponent {
     // Exo 13 :
     this.exoTreize();
 
-    // Exemple Chess:
+    // Exemple chess:
     this.exempleChess();
 
     // Exo RPG :
     this.testRpg();
+
+    // Exo Yatzee
+    this.yatzee = new Yatzee();
+    console.log('Résultat Yatzee : ');
+    console.log(this.yatzee.dice);
+    console.log(this.yatzee.getResult());
   }
 
   private exoUn(age: number): void {
@@ -285,4 +292,5 @@ export class AppComponent {
     );
     arena.levelUp(10);
   }
+
 }

@@ -26,7 +26,6 @@ export class ArenaGurubashi {
     let heroesShuffled = this.shuffleHeroesOrder(this.heroes);
     while (heroesShuffled.length !== 1) {
       for (const hero of heroesShuffled) {
-        console.log('Tour de : ' + hero.name);
         // On récupère l'index dans le tableau du hero en cours d'itération + 1
         let indexToFight = heroesShuffled.indexOf(hero) + 1;
         // Si l'index est égal à la taille du tableau, dernier hero du tableau
@@ -34,24 +33,31 @@ export class ArenaGurubashi {
           // On reset pour qu'il tape le 1er
           indexToFight = 0;
         }
+        // Attaque si le hero actuel a tout ses points de vie
         if (hero.currentLifePoint > 0) {
+          console.log('Tour de : ' + hero.name);
           hero.attack(heroesShuffled[indexToFight]);
         }
       }
-      let tmpShuffledHeroes: Hero[] = [];
-      tmpShuffledHeroes.push(... heroesShuffled);
-      for (const hero of tmpShuffledHeroes) {
-        if (hero.currentLifePoint <= 0) {
-          const index = heroesShuffled[tmpShuffledHeroes.indexOf(hero)];
-          heroesShuffled.slice(tmpShuffledHeroes.indexOf(hero), 1);
-          console.log(hero.name + ' a décédé');
+      // Filter pour récupérer un tableau des héros ayant des point de vie > 0
+      let tmpShuffledHeroes = heroesShuffled.filter(filterHero => filterHero.currentLifePoint > 0);
+      // S'il y a un écart entre les deux tableaux, alors il y a un eu un décé, et on affiche qui est mort
+      if (tmpShuffledHeroes.length !== heroesShuffled.length) {
+        for (const hero of heroesShuffled) {
+          if (hero.currentLifePoint <= 0) {
+            console.log(hero.name + ' a décédé');
+          }
         }
       }
-      heroesShuffled = this.shuffleHeroesOrder(heroesShuffled);
+      heroesShuffled = this.shuffleHeroesOrder(tmpShuffledHeroes);
     }
-    console.log('Félicitation à ' + heroesShuffled[0].name);
+    console.log('GG à ' + heroesShuffled[0].name);
   }
 
+  /**
+   * Fonction permettant de mélanger les héros
+   * @param heroes
+   */
   shuffleHeroesOrder(heroes: Hero[]): Hero[] {
     const tmpHeroes = new Array<Hero>();
     let shuffledHeroes: Hero[] = [];
@@ -64,6 +70,11 @@ export class ArenaGurubashi {
     return shuffledHeroes;
   }
 
+  /**
+   * Fonction permettant de monter de niveau tous les héros
+   *
+   * @param nbLevel, le niveau où monter tous les héros
+   */
   levelUp(nbLevel: number = 1): void {
     for(let i = 0; i < nbLevel; i++) {
       for (const hero of this.heroes) {
