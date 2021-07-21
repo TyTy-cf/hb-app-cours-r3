@@ -7,6 +7,10 @@ import {Bar} from "../model/bar";
 import {Pion} from "../model/Chess/pion";
 import {Tour} from "../model/Chess/tour";
 import {Piece} from "../model/Chess/piece";
+import {privateEntriesToIndex} from "@angular/compiler-cli/src/metadata/index_writer";
+import {Battleground} from "../model/rpg/Battleground";
+import {Mage} from "../model/rpg/mage";
+import {Rogue} from "../model/rpg/rogue";
 
 @Component({
   selector: 'app-root',
@@ -87,6 +91,9 @@ export class AppComponent {
 
     // Exemple Chess:
     this.exempleChess();
+
+    // Exo RPG :
+    this.testRpg();
   }
 
   private exoUn(age: number): void {
@@ -258,5 +265,18 @@ export class AppComponent {
     for (const piece of pieces) {
       piece.move();
     }
+  }
+
+  private testRpg(): void {
+    let battle = new Battleground(
+      new Mage('Alice'),
+      new Rogue('Tanguy')
+    );
+    battle.levelUp();
+    battle.levelUp();
+    battle.levelUp();
+    battle.levelUp();
+    battle.displayHero();
+    battle.fight();
   }
 }
