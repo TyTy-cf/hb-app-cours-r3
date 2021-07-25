@@ -24,19 +24,22 @@ export class ArenaGurubashi {
 
   fight(): void {
     let heroesShuffled = this.shuffleHeroesOrder(this.heroes);
+    // Tant qu'il n'en reste pas qu'un, on fait les combats
     while (heroesShuffled.length !== 1) {
+      // On parcourt les hero dans un ordre aléatoire
       for (const hero of heroesShuffled) {
-        // On récupère l'index dans le tableau du hero en cours d'itération + 1
-        let indexToFight = heroesShuffled.indexOf(hero) + 1;
-        // Si l'index est égal à la taille du tableau, dernier hero du tableau
-        if (indexToFight === heroesShuffled.length) {
-          // On reset pour qu'il tape le 1er
-          indexToFight = 0;
-        }
         // Attaque si le hero actuel a tout ses points de vie
         if (hero.currentLifePoint > 0) {
-          console.log('Tour de : ' + hero.name);
-          hero.attack(heroesShuffled[indexToFight]);
+          // On récupère un tableau de hero à attaquer, dont le hero courant ne fait pas parti
+          // et uniquement avec des hero ayant des points de vie > 0
+          const availableHeroes = heroesShuffled.filter(filterHero =>
+            filterHero.name !== hero.name && filterHero.currentLifePoint > 0
+          );
+          // On get le hero à un index déterminé aléatoirement
+          const targetHero = availableHeroes[this.randomNumber(0, availableHeroes.length - 1)];
+          console.log('Tour de : ' + hero.name + ' - cible : ' + targetHero.name);
+          // Et il tape
+          hero.attack(targetHero);
         }
       }
       // Filter pour récupérer un tableau des héros ayant des point de vie > 0

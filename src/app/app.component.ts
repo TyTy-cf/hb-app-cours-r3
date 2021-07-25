@@ -9,7 +9,6 @@ import {Battleground} from '../model/rpg/Battleground';
 import {Mage} from '../model/rpg/mage';
 import {Rogue} from '../model/rpg/rogue';
 import {ArenaGurubashi} from '../model/rpg/arena_gurubashi';
-// @ts-ignore
 import {Piece} from '../model/chess/piece';
 import {Yatzee} from '../model/yatzee/yatzee';
 

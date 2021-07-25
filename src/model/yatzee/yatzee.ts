@@ -3,7 +3,7 @@ import {Dice} from "./dice";
 export class Yatzee {
 
   private readonly _dice: Dice[] = [];
-  private _mapDiceResult: Map<number, number>;
+  private readonly _mapDiceResult: Map<number, number>;
 
   constructor() {
     this._mapDiceResult = new Map<number, number>();
@@ -25,7 +25,7 @@ export class Yatzee {
   }
 
   getResult(): string {
-    for (let [diceValue, diceQty] of this._mapDiceResult) {
+    for (const [diceValue, diceQty] of this._mapDiceResult) {
       if (diceQty === 5) {
         return 'Yatzee !';
       }
