@@ -40,7 +40,11 @@ export class Yatzee {
       }
       // La grande suite : taille de la map de 5 et : soit le 1 est présent et le 6 absent ou le 1 est absent et le 6 présent
       if (this._mapDiceResult.size === 5
-        && (!this._mapDiceResult.has(0) && this._mapDiceResult.has(6) || this._mapDiceResult.has(0) && !this._mapDiceResult.has(6))
+        && (
+          !this._mapDiceResult.has(1) && this._mapDiceResult.has(6)
+          ||
+          this._mapDiceResult.has(1) && !this._mapDiceResult.has(6)
+        )
       ) {
         return 'Grande suite';
       }
