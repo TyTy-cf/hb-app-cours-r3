@@ -7,15 +7,22 @@ export class ArenaGurubashi {
 
   private readonly heroes: Array<Hero>;
 
+  /**
+   *  Les ... représente le fait que l'on peut passer 0 au autant que l'on souhaite de paramètres
+   *  Ici on peut passer autant de string que l'on veut
+   *
+   * @param names, les noms des héros à créer
+   */
   constructor(... names: string[]) {
     this.heroes = new Array<Hero>();
+    // Tableau des classes disponibles
     const classes = [Warrior, Mage, Rogue];
+    // On créer les héros aléatoirement
     for (const name of names) {
       const random = this.randomNumber(classes.length - 1);
       this.heroes.push(new classes[random](name));
     }
     console.log(this.heroes);
-    this.fight();
   }
 
   randomNumber(max: number, min: number = 0): number {

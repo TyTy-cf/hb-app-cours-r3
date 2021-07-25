@@ -275,21 +275,22 @@ export class AppComponent {
   }
 
   private testRpg(): void {
-    let battle = new Battleground(
-      new Mage('Alice'),
-      new Rogue('Tanguy')
-    );
-    battle.levelUp();
-    battle.levelUp();
-    battle.levelUp();
-    battle.levelUp();
-    battle.displayHero();
-    battle.fight();
+    // let battle = new Battleground(
+    //   new Mage('Alice'),
+    //   new Rogue('Tanguy')
+    // );
+    // battle.levelUp();
+    // battle.levelUp();
+    // battle.levelUp();
+    // battle.levelUp();
+    // battle.displayHero();
+    // battle.fight();
 
     let arena = new ArenaGurubashi(
       'Kevin', 'Sebastien', 'Jim', 'Leo', 'Vincent', 'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane', 'Quentin', 'Alban'
     );
     arena.levelUp(10);
+    arena.fight();
   }
 
 }
