@@ -30,7 +30,7 @@ export class ArenaGurubashi {
   }
 
   fight(): void {
-    if (this.heroes.length === 0) {
+    if (this.heroes.length <= 1) {
       return;
     }
     let heroesShuffled = this.shuffleHeroesOrder(this.heroes);
