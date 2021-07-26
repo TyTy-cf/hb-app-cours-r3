@@ -119,7 +119,7 @@ Et maintenant... En prévision de la suite, comment feriez-vous pour faire un é
 
 Pareil, réfléchissez à comment le faire en objet.
 
-Je veux juste l'échiquier pour l'instant : ![img.png](img.png)
+Je veux juste l'échiquier pour l'instant : ![img.png](../../img.png)
 
 
 ### 17. Héritage

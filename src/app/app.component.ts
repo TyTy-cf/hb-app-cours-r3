@@ -3,13 +3,13 @@ import {User} from '../model/user';
 import {Car} from '../model/car';
 import {Student} from '../model/student';
 import {Bar} from '../model/bar';
-import {Pion} from '../model/chess/pion';
-import {Tour} from '../model/chess/tour';
+import {Pawn} from '../model/chess/pawn';
+import {Rook} from '../model/chess/rook';
 import {Battleground} from '../model/rpg/Battleground';
 import {Mage} from '../model/rpg/mage';
 import {Rogue} from '../model/rpg/rogue';
 import {ArenaGurubashi} from '../model/rpg/arena_gurubashi';
-import {Piece} from '../model/chess/piece';
+import {AbstractPiece} from '../model/chess/abstractPiece';
 import {Yatzee} from '../model/yatzee/yatzee';
 
 @Component({
@@ -106,12 +106,12 @@ export class AppComponent {
   private exoUn(age: number): void {
     const currentDate = new Date();
     const birthYear = currentDate.getFullYear() - age;
-    console.log('Résultat exo 1 pour l age : ' + age + ' est ' + birthYear);
-    // console.log('Résultat exo 1 pour l age : ' + age + ' est ' + (new Date()).getFullYear() - age);
+    console.log('Résultat exos 1 pour l age : ' + age + ' est ' + birthYear);
+    // console.log('Résultat exos 1 pour l age : ' + age + ' est ' + (new Date()).getFullYear() - age);
   }
 
   private exoDeux(numbers: number[]): void {
-    console.log('Résultat exo 2, la moyenne est de : ' +
+    console.log('Résultat exos 2, la moyenne est de : ' +
       this.calculateAverage(numbers))
     ;
   }
@@ -128,7 +128,7 @@ export class AppComponent {
   }
 
   private exoTrois(price: number, quantity: number) {
-    console.log('Résultat exo 3, prix TTC : ' +
+    console.log('Résultat exos 3, prix TTC : ' +
       this.calculateTTCPrice(price, quantity)+ '€')
     ;
   }
@@ -142,11 +142,11 @@ export class AppComponent {
     if (temperature >= 70) {
       result = 'gaz';
     }
-    console.log('Résultat exo 4, information de la température ' + temperature + ' : ' + result);
+    console.log('Résultat exos 4, information de la température ' + temperature + ' : ' + result);
   }
 
   private exoCinq(): void {
-    console.log('Résultat exo 5 : ');
+    console.log('Résultat exos 5 : ');
     for (const student of this.students) {
       console.log('La moyenne de : ' + student.name + ' est de ' +
         this.calculateAverage(student.notes))
@@ -155,7 +155,7 @@ export class AppComponent {
   }
 
   private exoSix() {
-    console.log('Résultat exo 6, le prix augmenté est de : ' +
+    console.log('Résultat exos 6, le prix augmenté est de : ' +
       this.increasePrice(50, 25) + '€')
     ;
   }
@@ -266,9 +266,9 @@ export class AppComponent {
   }
 
   private exempleChess(): void {
-    let pionB = new Pion('noir');
-    let tourB = new Tour('noir');
-    const pieces: Piece[] = [pionB, tourB];
+    let pionB = new Pawn('noir');
+    let tourB = new Rook('noir');
+    const pieces: AbstractPiece[] = [pionB, tourB];
     for (const piece of pieces) {
       piece.move();
     }
@@ -287,7 +287,7 @@ export class AppComponent {
     // battle.fight();
 
     let arena = new ArenaGurubashi(
-      'Kevin', 'Sebastien', 'Jim', 'Leo', 'Vincent', 'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane', 'Quentin', 'Alban'
+      'Kevin', 'Sebastien', 'Jim', 'Leo', 'Vincent', 'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane', 'Quentin', 'Alban', 'Vanessa', 'Fares'
     );
     arena.levelUp(10);
     arena.fight();

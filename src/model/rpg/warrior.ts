@@ -3,7 +3,7 @@ import {Hero} from "./hero";
 export class Warrior extends Hero {
 
   constructor(name: string) {
-    super(name, 375, 42, 45, 4);
+    super(name, 375, 42, 45, 4, 'assets/rpg/hero/warrior.png');
   }
 
   levelUp() {

@@ -8,7 +8,7 @@ export class ArenaGurubashi {
   private readonly heroes: Array<Hero>;
 
   /**
-   *  Les ... représente le fait que l'on peut passer 0 au autant que l'on souhaite de paramètres
+   *  Les ... représentent le fait que l'on peut passer 0 au autant que l'on souhaite de paramètres
    *  Ici on peut passer autant de string que l'on veut
    *
    * @param names, les noms des héros à créer
@@ -30,6 +30,9 @@ export class ArenaGurubashi {
   }
 
   fight(): void {
+    if (this.heroes.length === 0) {
+      return;
+    }
     let heroesShuffled = this.shuffleHeroesOrder(this.heroes);
     // Tant qu'il n'en reste pas qu'un, on fait les combats
     while (heroesShuffled.length !== 1) {
@@ -45,18 +48,20 @@ export class ArenaGurubashi {
           // On get le hero à un index déterminé aléatoirement
           const targetHero = availableHeroes[this.randomNumber(0, availableHeroes.length - 1)];
           console.log('Tour de : ' + hero.name + ' - cible : ' + targetHero.name);
-          // Et il tape
+          // Notre hero tape
           hero.attack(targetHero);
+          // Si la cible a des pv > 0, elle peut répliquer
+          if (targetHero.currentLifePoint > 0) {
+            targetHero.attack(hero);
+          }
         }
       }
       // Filter pour récupérer un tableau des héros ayant des point de vie > 0
       let tmpShuffledHeroes = heroesShuffled.filter(filterHero => filterHero.currentLifePoint > 0);
       // S'il y a un écart entre les deux tableaux, alors il y a un eu un décé, et on affiche qui est mort
       if (tmpShuffledHeroes.length !== heroesShuffled.length) {
-        for (const hero of heroesShuffled) {
-          if (hero.currentLifePoint <= 0) {
-            console.log(hero.name + ' a décédé');
-          }
+        for (const hero of heroesShuffled.filter(filterHero => filterHero.currentLifePoint <= 0)) {
+          console.log(hero.name + ' a décédé');
         }
       }
       heroesShuffled = this.shuffleHeroesOrder(tmpShuffledHeroes);

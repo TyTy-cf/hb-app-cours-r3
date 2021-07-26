@@ -18,6 +18,7 @@ export class Yatzee {
         this._mapDiceResult.set(dice.value, currentQty);
       }
     }
+    console.log(this._mapDiceResult);
   }
 
   get dice(): Dice[] {
@@ -25,6 +26,9 @@ export class Yatzee {
   }
 
   getResult(): string {
+    // [diceValue, diceQty] = les itérations de la map, où on a :
+    // diceValue = valeur du dé
+    // diceQty = le nombre de fois où le dé est apparu dans le lancé
     for (const [diceValue, diceQty] of this._mapDiceResult) {
       if (diceQty === 5) {
         return 'Yatzee !';
@@ -49,9 +53,24 @@ export class Yatzee {
         return 'Grande suite';
       }
       if (
-         (this._mapDiceResult.has(1) && this._mapDiceResult.has(2) && this._mapDiceResult.has(3) && this._mapDiceResult.has(4))
-      || (this._mapDiceResult.has(2) && this._mapDiceResult.has(3) && this._mapDiceResult.has(4) && this._mapDiceResult.has(5))
-      || (this._mapDiceResult.has(3) && this._mapDiceResult.has(4) && this._mapDiceResult.has(5) && this._mapDiceResult.has(6))
+         (
+           this._mapDiceResult.has(1)
+           && this._mapDiceResult.has(2)
+           && this._mapDiceResult.has(3)
+           && this._mapDiceResult.has(4)
+         )
+      || (
+        this._mapDiceResult.has(2)
+        && this._mapDiceResult.has(3)
+        && this._mapDiceResult.has(4)
+        && this._mapDiceResult.has(5)
+        )
+      || (
+        this._mapDiceResult.has(3)
+        && this._mapDiceResult.has(4)
+        && this._mapDiceResult.has(5)
+        && this._mapDiceResult.has(6)
+        )
         ) {
         return 'Petite suite';
       }
