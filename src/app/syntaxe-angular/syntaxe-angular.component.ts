@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Student} from "../../model/student";
+import {ChessBoard} from "../../model/chess/chessBoard";
 
 @Component({
   selector: 'app-syntaxe-angular',
@@ -24,6 +25,8 @@ export class SyntaxeAngularComponent implements OnInit {
       name: 'Zboui',
       notes: [],
     }
+    let chessBoard = new ChessBoard();
+    console.log(chessBoard.board);
   }
 
   ngOnInit(): void {
