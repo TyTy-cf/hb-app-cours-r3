@@ -1,0 +1,21 @@
+
+<div class="col-12 text-center mt-3">
+  <div class="d-flex dice-container mx-auto">
+        <img *ngFor="let dice of yatzee.dice; let i = index"
+             class="case-size-pieces mx-1"
+             src="{{dice.image}}"
+             alt="{{dice.value}}"
+             [class.highlight-dice]="dice.isSelected"
+             (click)="selectedDice(dice)"
+        >
+  </div>
+  <div>
+    <button class="btn btn-warning my-2"
+            (click)="rerollDice()"
+            [disabled]="yatzee.numberRoll == 3"
+    >
+      Reroll dice ({{yatzee.numberRoll}}/3)
+    </button>
+  </div>
+  <p>Votre résultat : {{yatzee.getResult()}}</p>
+</div>

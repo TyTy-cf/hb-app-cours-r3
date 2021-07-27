@@ -7,6 +7,7 @@ import { SyntaxeAngularComponent } from './syntaxe-angular/syntaxe-angular.compo
 import { YearFinderComponent } from './year-finder/year-finder.component';
 import { AlgoTypescriptComponent } from './algo-typescript/algo-typescript.component';
 import { SyntaxeAngularCoursComponent } from './syntaxe-angular-cours/syntaxe-angular-cours.component';
+import { YatzeeComponent } from './yatzee/yatzee.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SyntaxeAngularCoursComponent } from './syntaxe-angular-cours/syntaxe-an
     SyntaxeAngularComponent,
     YearFinderComponent,
     AlgoTypescriptComponent,
-    SyntaxeAngularCoursComponent
+    SyntaxeAngularCoursComponent,
+    YatzeeComponent
   ],
   imports: [
     BrowserModule,

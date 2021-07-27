@@ -4,6 +4,7 @@ export class Yatzee {
 
   private readonly _dice: Dice[] = [];
   private readonly _mapDiceResult: Map<number, number>;
+  private _numberRoll = 1;
 
   constructor() {
     this._mapDiceResult = new Map<number, number>();
@@ -23,6 +24,14 @@ export class Yatzee {
 
   get dice(): Dice[] {
     return this._dice;
+  }
+
+  get numberRoll(): number {
+    return this._numberRoll;
+  }
+
+  set numberRoll(value: number) {
+    this._numberRoll = value;
   }
 
   getResult(): string {
@@ -76,5 +85,14 @@ export class Yatzee {
       }
     }
     return 'NADA !';
+  }
+
+  rerollDice() {
+    for (const indexDice in this.dice) {
+      if (this.dice[indexDice].isSelected) {
+        this.dice[indexDice] = new Dice();
+      }
+    }
+    this.numberRoll++;
   }
 }

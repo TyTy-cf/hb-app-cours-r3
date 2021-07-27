@@ -4,12 +4,14 @@ import {SyntaxeAngularComponent} from "./syntaxe-angular/syntaxe-angular.compone
 import {YearFinderComponent} from "./year-finder/year-finder.component";
 import {AlgoTypescriptComponent} from "./algo-typescript/algo-typescript.component";
 import {SyntaxeAngularCoursComponent} from "./syntaxe-angular-cours/syntaxe-angular-cours.component";
+import {YatzeeComponent} from "./yatzee/yatzee.component";
 
 const routes: Routes = [
   { path: 'exo-syntaxe', component: SyntaxeAngularComponent },
   { path: 'cours-syntaxe', component: SyntaxeAngularCoursComponent },
   { path: 'year-finder/:age', component: YearFinderComponent },
-  { path: 'algo-typescript', component: AlgoTypescriptComponent}
+  { path: 'algo-typescript', component: AlgoTypescriptComponent},
+  { path: 'yatzee', component: YatzeeComponent}
 ];
 
 @NgModule({
