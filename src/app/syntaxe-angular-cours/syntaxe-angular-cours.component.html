@@ -1,0 +1,45 @@
+<div [class]="studentClass">
+  <h3>Etudiant {{nomFormation}}</h3>
+  <p>
+    Nom : {{student.name}}
+  </p>
+  <ul>
+    <li  *ngFor="let note of student.notes; index as loopIndex"
+         id="note#{{loopIndex}}"
+         [hidden]="loopIndex === 0"
+    >
+      <strong>
+        {{note}}
+      </strong>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3>Etudiant {{nomFormation}}</h3>
+  <p>
+    Nom : {{student2.name|uppercase}}
+  </p>
+  <div *ngIf="student2.notes.length > 0; else anyNotes">
+    <ul>
+      <li  *ngFor="let note of student2.notes; index as loopIndex"
+           id="note2#{{loopIndex}}"
+           [hidden]="loopIndex === 0"
+      >
+        <strong>
+          {{note}}
+        </strong>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div (click)="displayPause('(bientôt)')">
+  {{ dateObj | date:'shortTime' }}
+</div>
+
+<ng-template #anyNotes>
+  <strong>Cet étudiant n'a pas encore de notes</strong>
+</ng-template>
+
+

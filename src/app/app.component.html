@@ -4,9 +4,30 @@
   </div>
 
   <div class="container main-container">
-
     <div>
-      <app-syntaxe-angular></app-syntaxe-angular>
+      <a routerLink="/algo-typescript"
+         class="btn btn-primary"
+      >
+        Algo Typescript
+      </a>
+      <a routerLink="/year-finder/{{age}}"
+         class="btn btn-primary"
+      >
+        Year Finder
+      </a>
+      <a routerLink="/cours-syntaxe"
+         class="btn btn-primary"
+      >
+        Syntaxe Angular
+      </a>
+      <a routerLink="/exo-syntaxe"
+         class="btn btn-primary"
+      >
+        Exo Syntaxe
+      </a>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
     </div>
   </div>
 

@@ -19,32 +19,11 @@ import {Yatzee} from '../model/yatzee/yatzee';
 })
 export class AppComponent {
 
-  // public year: number;
-  public user: User;
-  public car: Car;
-  public students: Student[];
   public yatzee: Yatzee;
+  public age: number = 25;
 
   constructor() {
-    const piou = 'Jhon';
-    this.user = {
-      name: piou,
-      firstName: 'Doe',
-    };
-    this.user.name = 'Johny';
-    const user = {
-      name: 'Tourret',
-      firstName: 'Kevin',
-    };
-    this.user = user;
-    this.car = new Car();
-    this.car.brand = 'Audi';
 
-    // Exo 1 :
-    this.exoUn(42);
-
-    // Exo 2 :
-    this.exoDeux([ 12, 15, 19, 2]);
 
     // Exo 3 :
     this.exoTrois(20, 3);
@@ -52,22 +31,6 @@ export class AppComponent {
     // Exo 4 :
     this.exoQuatre(-10);
 
-    // Exo 5 :
-    this.students = [
-      {
-        name: 'Albert',
-        notes: new Array<number>(12, 8, 9, 7, 13),
-      },
-      {
-        name: 'Michel',
-        notes: new Array<number>(14, 13, 12, 11, 10),
-      },
-      {
-        name: 'Vincent',
-        notes: new Array<number>(17, 16, 15, 18, 13),
-      },
-    ];
-    this.exoCinq();
 
     // Exo 6 :
     this.exoSix();
@@ -103,30 +66,6 @@ export class AppComponent {
     console.log(this.yatzee.getResult());
   }
 
-  private exoUn(age: number): void {
-    const currentDate = new Date();
-    const birthYear = currentDate.getFullYear() - age;
-    console.log('Résultat exos 1 pour l age : ' + age + ' est ' + birthYear);
-    // console.log('Résultat exos 1 pour l age : ' + age + ' est ' + (new Date()).getFullYear() - age);
-  }
-
-  private exoDeux(numbers: number[]): void {
-    console.log('Résultat exos 2, la moyenne est de : ' +
-      this.calculateAverage(numbers))
-    ;
-  }
-
-  private calculateAverage(notes: number[]): number {
-    let sumNotes = 0;
-    for (const note of notes) {
-      sumNotes += note;
-    }
-    // numbers.forEach((note) => {
-    //   sumNotes += note;
-    // });
-    return sumNotes/notes.length;
-  }
-
   private exoTrois(price: number, quantity: number) {
     console.log('Résultat exos 3, prix TTC : ' +
       this.calculateTTCPrice(price, quantity)+ '€')
@@ -143,15 +82,6 @@ export class AppComponent {
       result = 'gaz';
     }
     console.log('Résultat exos 4, information de la température ' + temperature + ' : ' + result);
-  }
-
-  private exoCinq(): void {
-    console.log('Résultat exos 5 : ');
-    for (const student of this.students) {
-      console.log('La moyenne de : ' + student.name + ' est de ' +
-        this.calculateAverage(student.notes))
-      ;
-    }
   }
 
   private exoSix() {
@@ -290,7 +220,7 @@ export class AppComponent {
       'Kevin', 'Sebastien', 'Jim', 'Leo', 'Vincent', 'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane', 'Quentin', 'Alban', 'Vanessa', 'Fares'
     );
     arena.levelUp(10);
-    arena.fight();
+    // arena.fight();
   }
 
 }
