@@ -8,6 +8,11 @@ import { YearFinderComponent } from './year-finder/year-finder.component';
 import { AlgoTypescriptComponent } from './algo-typescript/algo-typescript.component';
 import { SyntaxeAngularCoursComponent } from './syntaxe-angular-cours/syntaxe-angular-cours.component';
 import { YatzeeComponent } from './yatzee/yatzee.component';
+import { ExoTypescriptComponent } from './exo-typescript/exo-typescript.component';
+import { ArenaComponent } from './arena/arena.component';
+import { ChessComponent } from './chess/chess.component';
+import { BattlegroundComponent } from './battleground/battleground.component';
+import { PrepBattlegroundComponent } from './prep-battleground/prep-battleground.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { YatzeeComponent } from './yatzee/yatzee.component';
     YearFinderComponent,
     AlgoTypescriptComponent,
     SyntaxeAngularCoursComponent,
-    YatzeeComponent
+    YatzeeComponent,
+    ExoTypescriptComponent,
+    ArenaComponent,
+    ChessComponent,
+    BattlegroundComponent,
+    PrepBattlegroundComponent
   ],
   imports: [
     BrowserModule,

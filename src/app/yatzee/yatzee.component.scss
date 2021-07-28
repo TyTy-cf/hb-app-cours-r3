@@ -1,17 +1,10 @@
 
 $yatzee-case-size: 72px;
 $yatzee-border-size: 0.5em;
-$color-black : #303030;
-$color-white : antiquewhite;
 
-
-.case-size {
-  width: $yatzee-case-size;
-  height: $yatzee-case-size;
-  &-pieces {
+.case-size-pieces {
     width: $yatzee-case-size - 3;
     height: $yatzee-case-size - 3;
-  }
 }
 
 .dice-container {

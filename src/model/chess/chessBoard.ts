@@ -22,17 +22,17 @@ export class ChessBoard {
   }
 
   private generateBoard(): void {
-    let color = ChessBoard.classBlack;
-    for (let x = 1; x <= 8; x++) {
-      for (let y = 1; y <= 8; y++) {
+    let color = ChessBoard.classWhite;
+    for (let x = 8; x >= 1; x--) {
+      for (let y = 8; y >= 1; y--) {
         const aCase = new Case(x, y, color);
         aCase.piece = this.getAbstractPieceFromXY(x, y);
         this._board.push(aCase);
-        if (y < 8) {
-          if (color === ChessBoard.classBlack) {
-            color = ChessBoard.classWhite;
-          } else {
+        if (y > 1) {
+          if (color === ChessBoard.classWhite) {
             color = ChessBoard.classBlack;
+          } else {
+            color = ChessBoard.classWhite;
           }
         }
       }

@@ -47,15 +47,13 @@ export class Battleground {
         secondIndex = Math.abs(startIndex - 1);
       }
     }
-    this.infoWinLose(this.heroOne);
-    this.infoWinLose(this.heroTwo);
   }
 
-  private infoWinLose(hero: Hero): void {
+  infoWinLose(hero: Hero): string {
     if (hero.currentLifePoint <= 0) {
-      console.log(hero.name + ' a perdu !');
+      return hero.name + ' (' + hero.className + ') a perdu !';
     } else {
-      console.log(hero.name + ' a gagné !');
+     return hero.name + ' (' + hero.className + ') a gagné !';
     }
   }
 }

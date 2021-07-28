@@ -3,7 +3,7 @@ import {Dice} from "./dice";
 export class Yatzee {
 
   private readonly _dice: Dice[] = [];
-  private readonly _mapDiceResult: Map<number, number>;
+  private _mapDiceResult: Map<number, number>;
   private _numberRoll = 1;
 
   constructor() {
@@ -88,9 +88,17 @@ export class Yatzee {
   }
 
   rerollDice() {
+    this._mapDiceResult = new Map<number, number>();
     for (const indexDice in this.dice) {
       if (this.dice[indexDice].isSelected) {
         this.dice[indexDice] = new Dice();
+      }
+      if (!this._mapDiceResult.has(this.dice[indexDice].value)) {
+        this._mapDiceResult.set(this.dice[indexDice].value, 1);
+      } else {
+        let currentQty = this._mapDiceResult.get(this.dice[indexDice].value)!;
+        currentQty++;
+        this._mapDiceResult.set(this.dice[indexDice].value, currentQty);
       }
     }
     this.numberRoll++;

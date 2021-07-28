@@ -10,10 +10,11 @@ export abstract class Hero {
   protected _defense: number;
   protected _criticalStrike: number;
   protected _image: string;
+  private _className: string;
 
   protected constructor(
     name: string, lifePointMax: number, damageMin: number,
-    damageMax: number, defense: number, image: string
+    damageMax: number, defense: number, image: string, className: string
   ) {
     this._name = name;
     this._currentLifePoint = lifePointMax;
@@ -24,6 +25,11 @@ export abstract class Hero {
     this._criticalStrike = 5;
     this._level = 1;
     this._image = image;
+    this._className = className;
+  }
+
+  get className(): string {
+    return this._className;
   }
 
   get name(): string {

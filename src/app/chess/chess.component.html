@@ -1,0 +1,14 @@
+
+<div class="d-flex flex-wrap damier mx-auto mt-3">
+    <div *ngFor="let oneCase of chessBoard.board"
+         class="case-size {{oneCase.color}} text-center"
+         title="{{oneCase.y}} ; {{oneCase.x}}"
+    >
+      <img class="case-size-pieces"
+           src="{{oneCase.piece?.image}}"
+           alt="{{oneCase.piece?.name}}"
+           [hidden]="!oneCase.piece"
+      >
+    </div>
+</div>
+
