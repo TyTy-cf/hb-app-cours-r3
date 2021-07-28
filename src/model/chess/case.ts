@@ -34,4 +34,8 @@ export class Case {
   set piece(value: AbstractPiece | undefined) {
     this._piece = value;
   }
+
+  getName(): string {
+    return this.x + ';' + this.y;
+  }
 }

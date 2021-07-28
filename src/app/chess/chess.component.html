@@ -1,8 +1,9 @@
 
-<div class="d-flex flex-wrap damier mx-auto mt-3">
+<div class="d-flex flex-wrap damier mx-auto my-2">
     <div *ngFor="let oneCase of chessBoard.board"
          class="case-size {{oneCase.color}} text-center"
-         title="{{oneCase.y}} ; {{oneCase.x}}"
+         title="{{oneCase.getName()}}}"
+         (click)="clickCase(oneCase)"
     >
       <img class="case-size-pieces"
            src="{{oneCase.piece?.image}}"

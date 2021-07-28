@@ -1,7 +1,7 @@
 
 
-$damier-case-size: 12vh;
-$damier-border-size: 2vh;
+$damier-case-size: 11vmin;
+$damier-border-size: 2vmin;
 $color-black : #404040;
 $color-white : antiquewhite;
 
@@ -24,13 +24,12 @@ $color-white : antiquewhite;
 }
 
 .case-size {
-  flex: 0 0 12.5%;
+  display: inline-block;
   width: $damier-case-size;
   height: $damier-case-size;
   &-pieces {
-    width: $damier-case-size - 1;
-    height: $damier-case-size - 1;
-    margin-top: ($damier-case-size - $damier-case-size) / 2;
+    width: $damier-case-size * 0.9;
+    height: $damier-case-size * 0.9;
   }
 }
 
