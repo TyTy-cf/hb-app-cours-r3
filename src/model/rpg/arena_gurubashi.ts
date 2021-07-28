@@ -1,7 +1,6 @@
 import {Hero} from "./hero";
-import {Warrior} from "./warrior";
-import {Mage} from "./mage";
-import { Rogue } from "./rogue";
+import {HeroMakerService} from "../../services/hero-maker.service";
+import {RandomService} from "../../services/random.service";
 
 export class ArenaGurubashi {
 
@@ -11,22 +10,22 @@ export class ArenaGurubashi {
    *  Les ... représentent le fait que l'on peut passer 0 au autant que l'on souhaite de paramètres
    *  Ici on peut passer autant de string que l'on veut
    *
+   * @param heroMakerService
+   * @param randomService
    * @param names, les noms des héros à créer
    */
-  constructor(... names: string[]) {
+  constructor(private heroMakerService: HeroMakerService,
+              private randomService: RandomService,
+              ... names: string[]
+  ) {
     this.heroes = new Array<Hero>();
-    // Tableau des classes disponibles
-    const classes = [Warrior, Mage, Rogue];
     // On créer les héros aléatoirement
     for (const name of names) {
-      const random = this.randomNumber(classes.length - 1);
-      this.heroes.push(new classes[random](name));
+      this.heroes.push(
+        this.heroMakerService.createHeroByName(name)
+      );
     }
     console.log(this.heroes);
-  }
-
-  randomNumber(max: number, min: number = 0): number {
-    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   fight(): void {
@@ -46,7 +45,7 @@ export class ArenaGurubashi {
             filterHero.name !== hero.name && filterHero.currentLifePoint > 0
           );
           // On get le hero à un index déterminé aléatoirement
-          const targetHero = availableHeroes[this.randomNumber(0, availableHeroes.length - 1)];
+          const targetHero = availableHeroes[this.randomService.randomNumber(0, availableHeroes.length - 1)];
           console.log('Tour de : ' + hero.name + ' - cible : ' + targetHero.name);
           // Notre hero tape
           hero.attack(targetHero);
@@ -78,7 +77,7 @@ export class ArenaGurubashi {
     let shuffledHeroes: Hero[] = [];
     tmpHeroes.push(... heroes);
     while(tmpHeroes.length > 0) {
-      const indexRandom = this.randomNumber(tmpHeroes.length - 1);
+      const indexRandom = this.randomService.randomNumber(tmpHeroes.length - 1);
       shuffledHeroes.push(tmpHeroes[indexRandom]);
       tmpHeroes.splice(indexRandom, 1);
     }

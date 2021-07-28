@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../../model/student";
-import {ChessBoard} from "../../model/chess/chessBoard";
-import {Mage} from "../../model/rpg/mage";
 import {Bar} from "../../model/bar";
 
 @Component({
