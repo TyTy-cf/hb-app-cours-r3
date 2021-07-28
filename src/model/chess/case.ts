@@ -4,7 +4,8 @@ export class Case {
 
   private readonly _x: number;
   private readonly _y: number;
-  private readonly _color: string;
+  private _color: string;
+  private _initialColor: string;
   private _piece: AbstractPiece|undefined;
 
   constructor(
@@ -13,6 +14,15 @@ export class Case {
     this._x = x;
     this._y = y;
     this._color = color;
+    this._initialColor = this._color;
+  }
+
+  get initialColor(): string {
+    return this._initialColor;
+  }
+
+  set initialColor(value: string) {
+    this._initialColor = value;
   }
 
   get x(): number {
@@ -25,6 +35,10 @@ export class Case {
 
   get color(): string {
     return this._color;
+  }
+
+  set color(value: string) {
+    this._color = value;
   }
 
   get piece(): AbstractPiece | undefined {
