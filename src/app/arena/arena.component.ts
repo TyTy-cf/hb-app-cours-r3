@@ -19,11 +19,11 @@ export class ArenaComponent implements OnInit {
 
   ngOnInit(): void {
    this.arena = new ArenaGurubashi(
-     this.heroMakerService,
+      this.heroMakerService,
       this.randomService,
       'Kevin', 'Sebastien', 'Jim', 'Leo', 'Vincent',
-     'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane',
-     'Quentin', 'Alban', 'Vanessa', 'Fares',
+       'Marine', 'Andranik', 'Tanguy', 'Laura', 'Alice', 'Morgane',
+       'Quentin', 'Alban', 'Vanessa', 'Fares',
     );
     this.arena.levelUp(9);
   }
