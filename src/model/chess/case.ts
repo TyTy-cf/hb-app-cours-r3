@@ -5,8 +5,8 @@ export class Case {
   private readonly _x: number;
   private readonly _y: number;
   private _color: string;
-  private _initialColor: string;
   private _piece: AbstractPiece|undefined;
+  private _isSelected: boolean;
 
   constructor(
     x: number, y: number, color: string
@@ -14,15 +14,15 @@ export class Case {
     this._x = x;
     this._y = y;
     this._color = color;
-    this._initialColor = this._color;
+    this._isSelected = false;
   }
 
-  get initialColor(): string {
-    return this._initialColor;
+  get isSelected(): boolean {
+    return this._isSelected;
   }
 
-  set initialColor(value: string) {
-    this._initialColor = value;
+  set isSelected(value: boolean) {
+    this._isSelected = value;
   }
 
   get x(): number {

@@ -13,6 +13,7 @@ import { ArenaComponent } from './arena/arena.component';
 import { ChessComponent } from './chess/chess.component';
 import { BattlegroundComponent } from './battleground/battleground.component';
 import { PrepBattlegroundComponent } from './prep-battleground/prep-battleground.component';
+import { PokerComponent } from './poker/poker.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PrepBattlegroundComponent } from './prep-battleground/prep-battleground
     ArenaComponent,
     ChessComponent,
     BattlegroundComponent,
-    PrepBattlegroundComponent
+    PrepBattlegroundComponent,
+    PokerComponent
   ],
   imports: [
     BrowserModule,

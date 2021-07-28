@@ -1,35 +1,38 @@
 <div class="app-wrapper">
-  <div class="header">
-    <h1>HB R3 - Projet Cours</h1>
-  </div>
-
-  <div class="container main-container">
+  <div class="header row">
+    <h1 class="text-center">HB R3 - Projet Cours</h1>
     <div>
-      <a routerLink="/algo-typescript" class="btn btn-primary">
-        Algo Typescript
-      </a>
       <a routerLink="/year-finder/{{age}}" class="btn btn-primary">
         Year Finder
       </a>
-      <a routerLink="/cours-syntaxe" class="btn btn-primary">
+      <a routerLink="/cours-syntaxe" class="btn btn-secondary">
         Syntaxe Angular
       </a>
-      <a routerLink="/exo-syntaxe" class="btn btn-primary">
-        Exo Syntaxe
+      <a routerLink="/algo-typescript" class="btn btn-primary">
+        Algo Typescript
       </a>
-      <a routerLink="/arena" class="btn btn-primary">
-        Arena
+      <a routerLink="/exo-syntaxe" class="btn btn-secondary">
+        Exo Syntaxe
       </a>
       <a routerLink="/prep-battleground" class="btn btn-primary">
         Prep-Battleground
       </a>
+      <a routerLink="/arena" class="btn btn-secondary">
+        Arena
+      </a>
       <a routerLink="/chess" class="btn btn-primary">
         Chess
       </a>
-      <a routerLink="/yatzee" class="btn btn-primary">
+      <a routerLink="/yatzee" class="btn btn-secondary">
         Yatzee
       </a>
+      <a routerLink="/poker" class="btn btn-primary">
+        Poker
+      </a>
     </div>
+  </div>
+
+  <div class="container main-container">
     <div>
       <router-outlet></router-outlet>
     </div>

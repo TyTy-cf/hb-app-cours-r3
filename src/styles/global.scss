@@ -11,6 +11,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.poker {
+  background-color: $poker-background-color !important;
+  color: antiquewhite;
+}
+
 .app-wrapper {
   min-height: 100vh;
   display: flex;

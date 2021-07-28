@@ -1,6 +1,6 @@
 
-$yatzee-case-size: 72px;
-$yatzee-border-size: 0.5em;
+$yatzee-case-size: 96px;
+$yatzee-border-size: 0.2em;
 
 .case-size-pieces {
     width: $yatzee-case-size - 3;
@@ -12,5 +12,5 @@ $yatzee-border-size: 0.5em;
 }
 
 .highlight-dice {
-  border: $yatzee-border-size double darkcyan;
+  border: $yatzee-border-size solid darkcyan;
 }

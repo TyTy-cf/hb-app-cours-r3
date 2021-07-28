@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Yatzee} from "../../model/yatzee/yatzee";
 import {Dice} from "../../model/yatzee/dice";
+import {YatzeeResult} from "../../model/yatzee/yatzeeResult";
 
 @Component({
   selector: 'app-yatzee',
   templateUrl: './yatzee.component.html',
   styleUrls: ['./yatzee.component.scss']
 })
-export class YatzeeComponent implements OnInit {
+export class YatzeeComponent {
 
   yatzee: Yatzee = new Yatzee();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   selectedDice(dice: Dice) {
     dice.isSelected = !dice.isSelected;
@@ -22,5 +18,11 @@ export class YatzeeComponent implements OnInit {
 
   rerollDice(): void {
     this.yatzee.rerollDice();
+    this.yatzee.getResult();
+  }
+
+  rollDice(): void {
+    this.yatzee.updateScore();
+    this.yatzee.rollDice();
   }
 }

@@ -1,25 +1,21 @@
 import {Dice} from "./dice";
+import {YatzeeResult} from "./yatzeeResult";
 
 export class Yatzee {
 
-  private readonly _dice: Dice[] = [];
-  private _mapDiceResult: Map<number, number>;
+  private _dice: Dice[] = [];
+  private _mapDiceResult: Map<number, number> = new Map<number, number>();
   private _numberRoll = 1;
+  private _currentRound = 1;
+  private _score: number = 0;
+  private _currentResult!: YatzeeResult;
 
   constructor() {
-    this._mapDiceResult = new Map<number, number>();
-    for(let i = 0; i < 5; i++) {
-      let dice = new Dice();
-      this._dice.push(dice);
-      if (!this._mapDiceResult.has(dice.value)) {
-        this._mapDiceResult.set(dice.value, 1);
-      } else {
-        let currentQty = this._mapDiceResult.get(dice.value)!;
-        currentQty++;
-        this._mapDiceResult.set(dice.value, currentQty);
-      }
-    }
-    console.log(this._mapDiceResult);
+    this.rollDice();
+  }
+
+  get score(): number {
+    return this._score;
   }
 
   get dice(): Dice[] {
@@ -30,26 +26,42 @@ export class Yatzee {
     return this._numberRoll;
   }
 
-  set numberRoll(value: number) {
-    this._numberRoll = value;
+  get currentRound(): number {
+    return this._currentRound;
   }
 
-  getResult(): string {
-    // [diceValue, diceQty] = les itérations de la map, où on a :
-    // diceValue = valeur du dé
-    // diceQty = le nombre de fois où le dé est apparu dans le lancé
+  get currentResult(): YatzeeResult {
+    return this._currentResult;
+  }
+
+  getResult(): void {
+    this._currentResult = {
+      name: 'Nada !', points: 0
+    };
     for (const [diceValue, diceQty] of this._mapDiceResult) {
       if (diceQty === 5) {
-        return 'Yatzee !';
+        this._currentResult = {
+          name: 'Yatzee', points: 50
+        };
+        break;
       }
       if (diceQty === 4) {
-        return 'Carré !';
+        this._currentResult = {
+          name: 'Carré', points: this.sumDiceValue()
+        };
+        break;
       }
       if (diceQty === 3) {
         if (this._mapDiceResult.size === 2) {
-          return 'Full !';
+          this._currentResult = {
+            name: 'Full', points: 25
+          };
+          break;
         }
-        return 'Brelan';
+        this._currentResult = {
+          name: 'Brelan', points: this.sumDiceValue()
+        };
+        break;
       }
       // La grande suite : taille de la map de 5 et : soit le 1 est présent et le 6 absent ou le 1 est absent et le 6 présent
       if (this._mapDiceResult.size === 5
@@ -59,7 +71,10 @@ export class Yatzee {
           this._mapDiceResult.has(1) && !this._mapDiceResult.has(6)
         )
       ) {
-        return 'Grande suite';
+        this._currentResult = {
+          name: 'Grande suite', points: 40
+        };
+        break;
       }
       if (
          (
@@ -81,26 +96,61 @@ export class Yatzee {
         && this._mapDiceResult.has(6)
         )
         ) {
-        return 'Petite suite';
+        this._currentResult = {
+          name: 'Petite suite', points: 30
+        };
+        break;
       }
     }
-    return 'NADA !';
   }
 
-  rerollDice() {
+  rerollDice(): void {
     this._mapDiceResult = new Map<number, number>();
     for (const indexDice in this.dice) {
       if (this.dice[indexDice].isSelected) {
         this.dice[indexDice] = new Dice();
       }
-      if (!this._mapDiceResult.has(this.dice[indexDice].value)) {
-        this._mapDiceResult.set(this.dice[indexDice].value, 1);
-      } else {
-        let currentQty = this._mapDiceResult.get(this.dice[indexDice].value)!;
-        currentQty++;
-        this._mapDiceResult.set(this.dice[indexDice].value, currentQty);
-      }
+      this.updateMapDiceQuantity(this.dice[indexDice].value);
     }
-    this.numberRoll++;
+    this._numberRoll++;
+  }
+
+  keepRoll(): void {
+    this._numberRoll = 3;
+  }
+
+  updateScore(): void {
+    this._score += this._currentResult.points;
+    this._currentRound++;
+  }
+
+  rollDice(): void {
+    this._dice = [];
+    this._numberRoll = 1;
+    this._mapDiceResult = new Map<number, number>();
+    for(let i = 0; i < 5; i++) {
+      let dice = new Dice();
+      this._dice.push(dice);
+      this.updateMapDiceQuantity(dice.value);
+    }
+    this.getResult();
+  }
+
+  private sumDiceValue(): number {
+    let sumDice = 0;
+    for (const dice of this.dice) {
+      sumDice += dice.value;
+    }
+    return sumDice;
+  }
+
+  private updateMapDiceQuantity(value: number): void {
+    if (!this._mapDiceResult.has(value)) {
+      this._mapDiceResult.set(value, 1);
+    } else {
+      let currentQty = this._mapDiceResult.get(value)!;
+      currentQty++;
+      this._mapDiceResult.set(value, currentQty);
+    }
   }
 }

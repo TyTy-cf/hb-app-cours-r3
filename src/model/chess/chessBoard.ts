@@ -12,6 +12,7 @@ export class ChessBoard {
   static classBlack = 'class-black';
   static classWhite = 'class-white';
   private _board: Case[] = [];
+  private startingCase: Case|undefined = undefined;
 
   constructor() {
     this.generateBoard();
@@ -61,6 +62,27 @@ export class ChessBoard {
       return new Queen(classCss);
     } else {
       return new King(classCss);
+    }
+  }
+
+  movePiece(clickedCase: Case): void {
+    // Premier passage : on vient de cliquer sur une case, et on a aucune case de départ
+    if (clickedCase.piece && !this.startingCase) {
+      // on indique que startingCase prend la valeur du click
+      this.startingCase = clickedCase;
+      this.startingCase.isSelected = true;
+    // Si on a de nouveau cliqué sur la même case : on définit startingCase à undefined
+    } else if (clickedCase.getName() === this.startingCase?.getName()) {
+      this.startingCase.isSelected = false;
+      this.startingCase = undefined;
+    // Cas du déplacement : on peut se déplacer sur une case, si startingCase existe
+    // Et s'il existe une piece sur la case d'arrivée, qu'elle ne soit pas de la même couleur que la pièce
+    // de la case startingCase
+    } else if (this.startingCase && clickedCase.piece?.color !== this.startingCase?.piece?.color) {
+      clickedCase.piece = this.startingCase.piece;
+      this.startingCase.isSelected = false;
+      this.startingCase.piece = undefined;
+      this.startingCase = undefined;
     }
   }
 }

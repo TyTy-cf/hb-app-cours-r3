@@ -4,6 +4,7 @@
          class="case-size {{oneCase.color}} text-center"
          title="{{oneCase.getName()}}}"
          (click)="clickCase(oneCase)"
+         [class.selected-case]="oneCase.isSelected"
     >
       <img class="case-size-pieces"
            src="{{oneCase.piece?.image}}"
