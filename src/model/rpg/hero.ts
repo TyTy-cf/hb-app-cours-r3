@@ -20,10 +20,10 @@ export abstract class Hero {
   ) {
     this._race = race;
     this._name = name;
-    this._currentLifePoint = lifePointMax * race.lifePoint;
-    this._lifePointMax = lifePointMax * race.lifePoint;
-    this._damageMin = damageMin * race.damage;
-    this._damageMax = damageMax * race.damage;
+    this._currentLifePoint = Math.round(lifePointMax * race.lifePoint);
+    this._lifePointMax = Math.round(lifePointMax * race.lifePoint);
+    this._damageMin = Math.round(damageMin * race.damage);
+    this._damageMax = Math.round(damageMax * race.damage);
     this._defense = defense * race.defense;
     this._criticalStrike = 5 * race.criticalStrike;
     this._level = 1;
@@ -93,6 +93,9 @@ export abstract class Hero {
     }
     damages = Math.round(damages * (100 - target._defense) / 100);
     target._currentLifePoint -= damages;
+    if (target._currentLifePoint < 0) {
+      target._currentLifePoint = 0;
+    }
     console.log('Le hero ' + target._name + ' a subit ' + damages + infoCc);
   }
 

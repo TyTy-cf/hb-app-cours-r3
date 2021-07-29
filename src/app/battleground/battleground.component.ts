@@ -27,6 +27,9 @@ export class BattlegroundComponent implements OnInit {
         this.heroMakerService.createHeroByName(params.heroName),
         this.heroMakerService.createHeroByName(params.heroNameDeux),
       );
+      for(let i = 0; i < 10; i++) {
+        this.battleground.levelUp();
+      }
     });
   }
 

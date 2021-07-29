@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'chess', component: ChessComponent},
   { path: 'poker', component: PokerComponent},
   { path: 'battleground/:heroName/:heroNameDeux', component: BattlegroundComponent},
-  { path: 'prep-battleground', component: PrepBattlegroundComponent}
+  { path: 'prep-battleground', component: PrepBattlegroundComponent},
 ];
 
 @NgModule({

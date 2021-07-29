@@ -15,6 +15,7 @@ import { BattlegroundComponent } from './battleground/battleground.component';
 import { PrepBattlegroundComponent } from './prep-battleground/prep-battleground.component';
 import { PokerComponent } from './poker/poker.component';
 import { PokerPlayerComponent } from './poker-player/poker-player.component';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +31,13 @@ import { PokerPlayerComponent } from './poker-player/poker-player.component';
     BattlegroundComponent,
     PrepBattlegroundComponent,
     PokerComponent,
-    PokerPlayerComponent
+    PokerPlayerComponent,
+    HeroComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

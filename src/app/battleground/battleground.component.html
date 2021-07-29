@@ -7,6 +7,12 @@
   >
     Start fight
   </button>
+
+  <div class="d-flex">
+    <app-hero [hero]="battleground.heroOne" class="float-start"></app-hero>
+    <app-hero [hero]="battleground.heroTwo" class="float-end"></app-hero>
+  </div>
+
   <p [hidden]="!startedFight">{{battleground.infoWinLose(battleground.heroOne)}}</p>
   <p [hidden]="!startedFight">{{battleground.infoWinLose(battleground.heroTwo)}}</p>
 </div>
