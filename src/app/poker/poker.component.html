@@ -1,12 +1,15 @@
 
-<div class="d-flex justify-content-center mt-2">
+
+
+<div class="d-flex justify-content-center">
   <div *ngFor="let player of poker.players.slice(0, 3)" class="col-4">
-    <div class="d-flex">
-      <img *ngFor="let card of player.hand" [src]="card.image" [alt]="card.name">
-    </div>
-    <p class="mx-auto">{{player.name}}</p>
+    <app-poker-player
+      [player]="player"
+      (fold)="foldPlayer($event)"
+    ></app-poker-player>
   </div>
 </div>
+
 
 <div class="my-4 d-flex justify-content-center">
   <img *ngFor="let card of poker.river"
@@ -24,10 +27,10 @@
 
 <div class="d-flex justify-content-center">
   <div *ngFor="let player of poker.players.slice(3)" class="col-4">
-    <div class="d-flex">
-      <img *ngFor="let card of player.hand" [src]="card.image" [alt]="card.name">
-    </div>
-    <p class="mx-auto">{{player.name}}</p>
+    <app-poker-player
+      [player]="player"
+      (fold)="foldPlayer($event)"
+    ></app-poker-player>
   </div>
 </div>
 

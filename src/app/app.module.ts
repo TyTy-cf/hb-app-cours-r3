@@ -14,6 +14,7 @@ import { ChessComponent } from './chess/chess.component';
 import { BattlegroundComponent } from './battleground/battleground.component';
 import { PrepBattlegroundComponent } from './prep-battleground/prep-battleground.component';
 import { PokerComponent } from './poker/poker.component';
+import { PokerPlayerComponent } from './poker-player/poker-player.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PokerComponent } from './poker/poker.component';
     ChessComponent,
     BattlegroundComponent,
     PrepBattlegroundComponent,
-    PokerComponent
+    PokerComponent,
+    PokerPlayerComponent
   ],
   imports: [
     BrowserModule,
