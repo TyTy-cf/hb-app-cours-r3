@@ -1,21 +1,21 @@
-import {CardPlayer} from "./CardPlayer";
+import {PokerPlayer} from "./PokerPlayer";
 import {ClassicDeck} from "../deck/classicDeck";
 import {Card} from "../card/card";
 
 export class Poker {
 
   private _river: Card[] = [];
-  private _players: CardPlayer[] = []
+  private _players: PokerPlayer[] = []
   private _classicDeck: ClassicDeck = new ClassicDeck();
 
   constructor(... names: string[]) {
     this._classicDeck.shuffle();
     for (const name of names) {
-      this._players.push(new CardPlayer(name));
+      this._players.push(new PokerPlayer(name));
     }
   }
 
-  get players(): CardPlayer[] {
+  get players(): PokerPlayer[] {
     return this._players;
   }
 

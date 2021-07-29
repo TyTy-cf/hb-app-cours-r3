@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {CardPlayer} from "../../model/cards/game/CardPlayer";
+import {PokerPlayer} from "../../model/cards/game/PokerPlayer";
 
 @Component({
   selector: 'app-poker-player',
@@ -9,10 +9,10 @@ import {CardPlayer} from "../../model/cards/game/CardPlayer";
 export class PokerPlayerComponent {
 
   @Input()
-  player!: CardPlayer;
+  player!: PokerPlayer;
 
   @Output()
-  fold: EventEmitter<CardPlayer> = new EventEmitter<CardPlayer>();
+  fold: EventEmitter<PokerPlayer> = new EventEmitter<PokerPlayer>();
 
   folding(): void {
     // Cet output est overkill ! On peut juste dire que this.player.isFolding = true et ça marche...

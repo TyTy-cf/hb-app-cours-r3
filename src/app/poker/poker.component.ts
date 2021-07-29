@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 import {Poker} from '../../model/cards/game/poker';
-import {CardPlayer} from "../../model/cards/game/CardPlayer";
+import {PokerPlayer} from "../../model/cards/game/PokerPlayer";
 
 @Component({
   selector: 'app-poker',
@@ -19,7 +19,7 @@ export class PokerComponent implements AfterViewInit, OnDestroy {
     document.querySelector('body')!.classList.remove('poker');
   }
 
-  foldPlayer(foldingPLayer: CardPlayer) {
+  foldPlayer(foldingPLayer: PokerPlayer) {
     console.log(foldingPLayer.name + ' folding...');
     foldingPLayer.isFolding = true;
   }

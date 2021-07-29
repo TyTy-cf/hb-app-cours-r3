@@ -1,6 +1,6 @@
 import {Card} from "../card/card";
 
-export class CardPlayer {
+export class PokerPlayer {
 
   private _name: string;
   private _hand: Card[] = [];
