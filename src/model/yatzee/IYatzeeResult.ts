@@ -1,5 +1,5 @@
 
-export interface YatzeeResult {
+export interface IYatzeeResult {
   name: string;
   points: number;
 }

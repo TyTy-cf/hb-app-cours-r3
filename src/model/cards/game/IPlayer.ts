@@ -1,6 +1,6 @@
 import {Card} from "../card/card";
 
-export interface Player {
+export interface IPlayer {
   name: string;
   hand: Card[];
 }

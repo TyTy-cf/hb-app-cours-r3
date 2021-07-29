@@ -26,13 +26,16 @@ Ajouter les fonctions suivantes :
 Faites un component 'yatzee-best-score'
 
 
-Ce component aura un attribut de type YatzeeBestScoreService, il devra afficher les 10 scores les plus hauts au Yatzee
+Ce component a un attribut de type YatzeeBestScoreService, il doit afficher les 10 scores les plus hauts au Yatzee
 
 
-Le but est quand même de faire de l'Input/Ouput, du coup vous ajouterez le component Yatzee dans ce component, et vous modifierez la route /yatzee actuelle pour qu'elle aille vers les meilleurs score
+Le but est quand même de faire de l'Input/Ouput, du coup vous ajouterez le component Yatzee dans ce même component, et vous modifierez la route /yatzee actuelle pour qu'elle aille vers le component des meilleurs score
 
 
-Le but est que lorsqu'une partie de Yatzee est finit, le component Yatzee informe le component YatzeeBestScoreComponent qu'un nouveau score doit être ajouté et actualiser la liste des scores
+Ajouter un bouton "Jouer" en dessous des meilleurs scores, lorsque l'on clique dessus, on affiche le component Yatzee.
+
+
+Le but est que lorsqu'une partie de Yatzee est finie, le component Yatzee informe le component YatzeeBestScoreComponent qu'un nouveau score doit être ajouté et actualiser la liste des scores
 
 
 ### 3. En prévision de Vendredi...
@@ -61,7 +64,7 @@ Afin de pouvoir le tester et le réutiliser correctement dans notre application,
 
 - name : Orc
 - code: OR (c'est un o majuscule)
-- damage: 1.1
+- damage: 1.2
 - lifePoint: 1
 - criticalStrike: 1
 - defense: 1
@@ -70,7 +73,7 @@ Afin de pouvoir le tester et le réutiliser correctement dans notre application,
 - name: Tauren
 - code: TA
 - damage: 1
-- lifePoint: 1.1
+- lifePoint: 1.2
 - criticalStrike: 1
 - defense: 1
 
@@ -78,6 +81,14 @@ Afin de pouvoir le tester et le réutiliser correctement dans notre application,
 - name: Undead
 - code: UD
 - damage: 1
+- lifePoint: 1
+- criticalStrike: 1.2
+- defense: 1
+
+
+- name: Blood Elf
+- code: BE
+- damage: 1.1
 - lifePoint: 1
 - criticalStrike: 1.1
 - defense: 1
@@ -88,7 +99,7 @@ Afin de pouvoir le tester et le réutiliser correctement dans notre application,
 - damage: 1
 - lifePoint: 1
 - criticalStrike: 1
-- defense: 1.1
+- defense: 1.2
 
 
 Ajouter les fonctions suivante dans le RaceService :

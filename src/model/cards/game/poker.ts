@@ -1,11 +1,11 @@
-import {Player} from "./player";
+import {IPlayer} from "./IPlayer";
 import {ClassicDeck} from "../deck/classicDeck";
 import {Card} from "../card/card";
 
 export class Poker {
 
   private _river: Card[] = [];
-  private _players: Player[] = []
+  private _players: IPlayer[] = []
   private _classicDeck: ClassicDeck = new ClassicDeck();
 
   constructor(... names: string[]) {
@@ -15,7 +15,7 @@ export class Poker {
     }
   }
 
-  get players(): Player[] {
+  get players(): IPlayer[] {
     return this._players;
   }
 

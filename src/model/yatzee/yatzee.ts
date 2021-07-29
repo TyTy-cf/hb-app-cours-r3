@@ -1,5 +1,5 @@
 import {Dice} from "./dice";
-import {YatzeeResult} from "./yatzeeResult";
+import {IYatzeeResult} from "./IYatzeeResult";
 
 export class Yatzee {
 
@@ -8,7 +8,7 @@ export class Yatzee {
   private _numberRoll = 1;
   private _currentRound = 1;
   private _score: number = 0;
-  private _currentResult!: YatzeeResult;
+  private _currentResult!: IYatzeeResult;
 
   constructor() {
     this.rollDice();
@@ -30,7 +30,7 @@ export class Yatzee {
     return this._currentRound;
   }
 
-  get currentResult(): YatzeeResult {
+  get currentResult(): IYatzeeResult {
     return this._currentResult;
   }
 
