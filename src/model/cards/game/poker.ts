@@ -1,21 +1,21 @@
-import {IPlayer} from "./IPlayer";
+import {CardPlayer} from "./CardPlayer";
 import {ClassicDeck} from "../deck/classicDeck";
 import {Card} from "../card/card";
 
 export class Poker {
 
   private _river: Card[] = [];
-  private _players: IPlayer[] = []
+  private _players: CardPlayer[] = []
   private _classicDeck: ClassicDeck = new ClassicDeck();
 
   constructor(... names: string[]) {
     this._classicDeck.shuffle();
     for (const name of names) {
-      this._players.push({name, hand: []});
+      this._players.push(new CardPlayer(name));
     }
   }
 
-  get players(): IPlayer[] {
+  get players(): CardPlayer[] {
     return this._players;
   }
 
@@ -48,6 +48,7 @@ export class Poker {
   resetPlayerHand(): void {
     for (const player of this._players) {
       player.hand = [];
+      player.isFolding = false;
     }
   }
 
