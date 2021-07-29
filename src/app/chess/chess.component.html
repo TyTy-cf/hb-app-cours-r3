@@ -6,6 +6,7 @@
          (click)="chessBoard.movePiece(oneCase)"
          [class.selected-case]="oneCase.isSelected"
     >
+<!--      [ngClass]="{'selected-case': oneCase.isSelected}"-->
       <img class="case-size-pieces"
            src="{{oneCase.piece?.image}}"
            alt="{{oneCase.piece?.name}}"
