@@ -8,7 +8,7 @@ import {Poker} from '../../model/cards/game/poker';
 })
 export class PokerComponent implements AfterViewInit, OnDestroy {
 
-  poker: Poker = new Poker('Quentin', 'Alban', 'Morgane', 'Alice', 'Fares');
+  poker: Poker = new Poker('Quentin', 'Alban', 'Morgane', 'Alice', 'Fares', 'Leo');
 
   ngAfterViewInit() {
     document.querySelector('body')!.classList.add('poker');

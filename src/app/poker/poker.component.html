@@ -9,7 +9,10 @@
 </div>
 
 <div class="my-4 d-flex justify-content-center">
-  <img *ngFor="let card of poker.river" [src]="card.image" [alt]="card.name">
+  <img *ngFor="let card of poker.river"
+       [src]="card.image"
+       [alt]="card.name"
+  >
   <button class="btn btn-warning"
           (click)="poker.addRiver()"
           [disabled]="poker.river.length == 5"
@@ -31,7 +34,7 @@
 <div class="d-flex justify-content-center my-2">
   <button class="btn btn-danger"
           (click)="poker.dealCards()"
-          [disabled]="poker.river.length < 5 && poker.river.length >= 3"
+          [disabled]="poker.river.length >= 3 && poker.river.length < 5"
   >
     Deal Cards
   </button>

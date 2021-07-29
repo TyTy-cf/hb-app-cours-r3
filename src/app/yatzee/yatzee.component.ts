@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Yatzee} from "../../model/yatzee/yatzee";
 import {Dice} from "../../model/yatzee/dice";
-import {IYatzeeResult} from "../../model/yatzee/IYatzeeResult";
 
 @Component({
   selector: 'app-yatzee',
