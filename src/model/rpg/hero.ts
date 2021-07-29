@@ -1,3 +1,4 @@
+import {Race} from "./race";
 
 export abstract class Hero {
 
@@ -10,22 +11,28 @@ export abstract class Hero {
   protected _defense: number;
   protected _criticalStrike: number;
   protected _image: string;
-  private _className: string;
+  protected _className: string;
+  protected _race: Race;
 
   protected constructor(
     name: string, lifePointMax: number, damageMin: number,
-    damageMax: number, defense: number, image: string, className: string
+    damageMax: number, defense: number, image: string, className: string, race: Race
   ) {
+    this._race = race;
     this._name = name;
-    this._currentLifePoint = lifePointMax;
-    this._lifePointMax = lifePointMax;
-    this._damageMin = damageMin;
-    this._damageMax = damageMax;
-    this._defense = defense;
-    this._criticalStrike = 5;
+    this._currentLifePoint = lifePointMax * race.lifePoint;
+    this._lifePointMax = lifePointMax * race.lifePoint;
+    this._damageMin = damageMin * race.damage;
+    this._damageMax = damageMax * race.damage;
+    this._defense = defense * race.defense;
+    this._criticalStrike = 5 * race.criticalStrike;
     this._level = 1;
     this._image = image;
     this._className = className;
+  }
+
+  get race(): Race {
+    return this._race;
   }
 
   get className(): string {

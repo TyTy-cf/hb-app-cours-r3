@@ -51,9 +51,9 @@ export class Battleground {
 
   infoWinLose(hero: Hero): string {
     if (hero.currentLifePoint <= 0) {
-      return hero.name + ' (' + hero.className + ') a perdu !';
+      return hero.name + ' (' + hero.className + ' - ' + hero.race.name + ') a perdu !';
     } else {
-     return hero.name + ' (' + hero.className + ') a gagné !';
+     return hero.name + ' (' + hero.className + ' - ' + hero.race.name + ') a gagné !';
     }
   }
 }

@@ -1,9 +1,10 @@
 import {Hero} from "./hero";
+import {Race} from "./race";
 
 export class Mage extends Hero{
 
-  constructor(name: string) {
-    super(name, 285, 45, 48, 2, 'assets/rpg/hero/mage.png', 'Mage');
+  constructor(name: string, race: Race) {
+    super(name, 285, 45, 48, 2, 'assets/rpg/hero/mage.png', 'Mage', race);
   }
 
   levelUp() {

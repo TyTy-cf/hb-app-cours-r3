@@ -11,7 +11,6 @@ export class AlgoTypescriptComponent implements OnInit {
   public students: Student[];
 
   constructor() {
-
     // Exo 5 :
     this.students = [
       {
