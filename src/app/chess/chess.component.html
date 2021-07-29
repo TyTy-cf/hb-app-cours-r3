@@ -3,7 +3,7 @@
     <div *ngFor="let oneCase of chessBoard.board"
          class="case-size {{oneCase.color}} text-center"
          title="{{oneCase.getName()}}}"
-         (click)="clickCase(oneCase)"
+         (click)="chessBoard.movePiece(oneCase)"
          [class.selected-case]="oneCase.isSelected"
     >
       <img class="case-size-pieces"
