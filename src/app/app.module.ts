@@ -16,6 +16,9 @@ import { PrepBattlegroundComponent } from './prep-battleground/prep-battleground
 import { PokerComponent } from './poker/poker.component';
 import { PokerPlayerComponent } from './poker-player/poker-player.component';
 import { HeroComponent } from './hero/hero.component';
+import { FormUserComponent } from './form-user/form-user.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormUserCodeComponent } from './form-user-code/form-user-code.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +36,15 @@ import { HeroComponent } from './hero/hero.component';
     PokerComponent,
     PokerPlayerComponent,
     HeroComponent,
+    FormUserComponent,
+    FormUserCodeComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule, // Obligatoire pour formulaire par le template
+    ReactiveFormsModule, // Obligatoire pour formulaire par le code
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
