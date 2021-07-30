@@ -12,6 +12,7 @@ import {PrepBattlegroundComponent} from "./prep-battleground/prep-battleground.c
 import {PokerComponent} from "./poker/poker.component";
 import {FormUserComponent} from "./form-user/form-user.component";
 import {FormUserCodeComponent} from "./form-user-code/form-user-code.component";
+import {RaceComponent} from "./race/race.component";
 
 const routes: Routes = [
   { path: 'exo-syntaxe', component: SyntaxeAngularComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'prep-battleground', component: PrepBattlegroundComponent},
   { path: 'form/user/template', component: FormUserComponent},
   { path: 'form/user/code', component: FormUserCodeComponent},
+  { path: 'race', component: RaceComponent},
 ];
 
 @NgModule({

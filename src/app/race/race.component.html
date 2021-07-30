@@ -1,1 +1,41 @@
-<p>race works!</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        Nom
+      </th>
+      <th>
+        Coef modif LP
+      </th>
+      <th>
+        Coef modif DMG
+      </th>
+      <th>
+        Coef modif DEF
+      </th>
+      <th>
+        Coef modif CRIT
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let race of raceService.races">
+      <td>
+        {{race.name}}
+      </td>
+      <td>
+        {{race.lifePoint}}
+      </td>
+      <td>
+        {{race.damage}}
+      </td>
+      <td>
+        {{race.defense}}
+      </td>
+      <td>
+        {{race.criticalStrike}}
+      </td>
+    </tr>
+  </tbody>
+</table>
