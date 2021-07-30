@@ -21,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormUserCodeComponent } from './form-user-code/form-user-code.component';
 import {RaceComponent} from "./race/race.component";
 import { FormRaceComponent } from './form-race/form-race.component';
+import { FormHeroComponent } from './form-hero/form-hero.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FormRaceComponent } from './form-race/form-race.component';
     FormUserComponent,
     FormUserCodeComponent,
     RaceComponent,
-    FormRaceComponent
+    FormRaceComponent,
+    FormHeroComponent
   ],
   imports: [
     BrowserModule,

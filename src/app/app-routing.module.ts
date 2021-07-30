@@ -14,6 +14,7 @@ import {FormUserComponent} from "./form-user/form-user.component";
 import {FormUserCodeComponent} from "./form-user-code/form-user-code.component";
 import {RaceComponent} from "./race/race.component";
 import {FormRaceComponent} from "./form-race/form-race.component";
+import {FormHeroComponent} from "./form-hero/form-hero.component";
 
 const routes: Routes = [
   { path: 'exo-syntaxe', component: SyntaxeAngularComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'form/user/template', component: FormUserComponent},
   { path: 'form/user/code', component: FormUserCodeComponent},
   { path: 'race', component: RaceComponent},
+  { path: 'form/hero', component: FormHeroComponent},
 ];
 
 @NgModule({
