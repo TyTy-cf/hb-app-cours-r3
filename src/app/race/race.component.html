@@ -20,7 +20,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let race of raceService.races">
+    <tr *ngFor="let race of raceService.races"
+        (click)="editedRace = race"
+        title="Modifier la race {{race.name}}"
+        class="clickable-tr"
+    >
       <td>
         {{race.name}}
       </td>
@@ -39,3 +43,5 @@
     </tr>
   </tbody>
 </table>
+
+<app-form-race [race]="editedRace"></app-form-race>

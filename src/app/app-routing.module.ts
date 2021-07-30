@@ -29,7 +29,6 @@ const routes: Routes = [
   { path: 'form/user/template', component: FormUserComponent},
   { path: 'form/user/code', component: FormUserCodeComponent},
   { path: 'race', component: RaceComponent},
-  { path: 'form/race', component: FormRaceComponent }
 ];
 
 @NgModule({
