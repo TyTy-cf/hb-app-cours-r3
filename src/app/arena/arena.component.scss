@@ -1,0 +1,14 @@
+
+.heroes-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-element {
+  margin: 0.2em;
+  flex: 0 0 auto;
+  width: 30%;
+}

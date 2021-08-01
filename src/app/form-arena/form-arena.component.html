@@ -1,0 +1,46 @@
+
+<h2>Arena - Last man standing</h2>
+
+<button class="btn btn-warning" (click)="formSubmitted = false">
+  New game
+</button>
+
+<div class="col-6" [hidden]="formSubmitted">
+  <h3>Création des héros</h3>
+  <form [formGroup]="formGroupHero">
+    <div formArrayName="names">
+      <div *ngFor="let _ of names.controls; index as indexFormControl">
+        <h4>Hero name #{{indexFormControl + 1}}</h4>
+        <div class="input-group my-2">
+          <input [class.is-invalid]="_.invalid && _.touched"
+                 [formControlName]="indexFormControl"
+                 placeholder="Name"
+                 class="form-control"
+                 type="text"
+          >
+          <span class="input-group-btn">
+            <button type="button"
+                    (click)="addNameField()"
+                    class="btn btn-success"
+            >
+              +
+            </button>
+            <button type="button"
+                    (click)="deleteNameField(indexFormControl)"
+                    class="btn btn-danger"
+            >
+              -
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary"
+            (click)="createHeroes()"
+            [disabled]="!formGroupHero.valid">
+      Create heroes
+    </button>
+  </form>
+</div>
+
+<app-arena [arena]="arena" [hidden]="!formSubmitted"></app-arena>

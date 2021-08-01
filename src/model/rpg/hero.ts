@@ -13,22 +13,28 @@ export abstract class Hero {
   protected _image: string;
   protected _className: string;
   protected _race: Race;
+  protected _classColor: string;
 
   protected constructor(
     name: string, lifePointMax: number, damageMin: number,
-    damageMax: number, defense: number, image: string, className: string, race: Race
+    damageMax: number, defense: number, image: string, className: string, race: Race, classColor: string
   ) {
     this._race = race;
     this._name = name;
     this._currentLifePoint = Math.round(lifePointMax * race.lifePoint);
     this._lifePointMax = Math.round(lifePointMax * race.lifePoint);
-    this._damageMin = Math.round(damageMin * race.damage);
-    this._damageMax = Math.round(damageMax * race.damage);
-    this._defense = defense * race.defense;
-    this._criticalStrike = 5 * race.criticalStrike;
+    this._damageMin = Math.round(damageMin * race.damage * 100) / 100;
+    this._damageMax = Math.round(damageMax * race.damage * 100) / 100;
+    this._defense = Math.round(defense * race.defense * 100) / 100;
+    this._criticalStrike =  Math.round(5 * race.criticalStrike * 100) / 100;
     this._level = 1;
     this._image = image;
     this._className = className;
+    this._classColor = classColor;
+  }
+
+  get classColor(): string {
+    return this._classColor;
   }
 
   get race(): Race {
@@ -77,7 +83,7 @@ export abstract class Hero {
 
   levelUp(): void {
     this._level++;
-    this._criticalStrike += .25;
+    this._criticalStrike =  Math.round((this._criticalStrike + .25  * this.race.criticalStrike) * 100) / 100;
   }
 
   randomNumber(max: number, min: number = 0): number {

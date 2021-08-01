@@ -22,6 +22,7 @@ import { FormUserCodeComponent } from './form-user-code/form-user-code.component
 import {RaceComponent} from "./race/race.component";
 import { FormRaceComponent } from './form-race/form-race.component';
 import { FormHeroComponent } from './form-hero/form-hero.component';
+import { FormArenaComponent } from './form-arena/form-arena.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FormHeroComponent } from './form-hero/form-hero.component';
     FormUserCodeComponent,
     RaceComponent,
     FormRaceComponent,
-    FormHeroComponent
+    FormHeroComponent,
+    FormArenaComponent
   ],
   imports: [
     BrowserModule,

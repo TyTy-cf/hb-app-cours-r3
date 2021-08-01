@@ -18,7 +18,7 @@ export class HeroMakerService {
 
   public createHeroByName(name: string): Hero {
     const heroesClass = [Warrior, Mage, Rogue];
-    const race = this.raceService.races[this.randomService.randomNumber(this.raceService.races.length)];
+    const race = this.raceService.races[this.randomService.randomNumber(this.raceService.races.length-1)];
     return new heroesClass[this.randomService.randomNumber(heroesClass.length-1)](
       name, race
     );

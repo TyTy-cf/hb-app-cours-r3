@@ -1,39 +1,51 @@
 
+
 <div *ngIf="hero">
-  <img [src]="hero.image" [alt]="hero.className" class="hero-img">
-  <div>
-    <h2>{{ hero.name }} - {{ hero.race.name }} {{ hero.className }} </h2>
-    <p>Lvl: {{ hero.level }}</p>
-    <div>
-      <span>{{ hero.currentLifePoint }} / {{ hero.lifePointMax }}</span>
+  <div class="card-rpgEntity text-center col-12">
+    <h2 [class]="hero.classColor" class="card-header">
+      {{hero.name}} (Lvl: {{hero.level}})
+      <div class="class-info">
+        {{hero.race.name}}
+        {{hero.className}}
+      </div>
+    </h2>
+    <div class="hp-pool py-1" [class.empty]="hero.currentLifePoint === 0" title="life point">
+      {{hero.currentLifePoint}}/{{hero.lifePointMax}}
     </div>
-    <table>
-      <tbody>
-        <tr>
-          <th>
-            <img class="icon-ability" src="../../assets/rpg/sword.png" alt="Damages">
-          </th>
-          <td>
-            {{ hero.damageMin }} - {{ hero.damageMax }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            <img class="icon-ability" src="../../assets/rpg/cs.png" alt="Critical Strike">
-          </th>
-          <td>
-            {{ hero.criticalStrike }}%
-          </td>
-        </tr>
-        <tr>
-          <th>
-            <img class="icon-ability" src="../../assets/rpg/defense.png" alt="Defense">
-          </th>
-          <td>
-            {{ hero.defense }}%
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-7">
+        <img [src]="hero.image" class="image-hero">
+      </div>
+      <div class="col-5">
+        <table class="table table-striped w-100 table-entity">
+          <tbody>
+          <tr>
+            <th>
+              <img class="icon" src="../../assets/rpg/sword.png" alt="Damages">
+            </th>
+            <td>
+              {{ hero.damageMin }} - {{ hero.damageMax }}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <img class="icon" src="../../assets/rpg/cs.png" alt="Critical Strike">
+            </th>
+            <td>
+              {{ hero.criticalStrike }}%
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <img class="icon" src="../../assets/rpg/defense.png" alt="Defense">
+            </th>
+            <td>
+              {{ hero.defense }}%
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

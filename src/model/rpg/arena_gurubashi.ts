@@ -4,7 +4,8 @@ import {RandomService} from "../../services/random.service";
 
 export class ArenaGurubashi {
 
-  private readonly heroes: Array<Hero>;
+  private readonly _heroes: Array<Hero>;
+  private _startedFight = false;
 
   /**
    *  Les ... représentent le fait que l'on peut passer 0 au autant que l'on souhaite de paramètres
@@ -16,23 +17,37 @@ export class ArenaGurubashi {
    */
   constructor(private heroMakerService: HeroMakerService,
               private randomService: RandomService,
-              ... names: string[]
+              names: string[]
   ) {
-    this.heroes = new Array<Hero>();
+    this._heroes = new Array<Hero>();
+    console.log(names);
     // On créer les héros aléatoirement
     for (const name of names) {
-      this.heroes.push(
+      this._heroes.push(
         this.heroMakerService.createHeroByName(name)
       );
     }
-    console.log(this.heroes);
+    console.log(this._heroes);
+  }
+
+  get startedFight(): boolean {
+    return this._startedFight;
+  }
+
+  set startedFight(value: boolean) {
+    this._startedFight = value;
+  }
+
+  get heroes(): Array<Hero> {
+    return this._heroes;
   }
 
   fight(): void {
-    if (this.heroes.length <= 1) {
+    if (this._heroes.length <= 1) {
       return;
     }
-    let heroesShuffled = this.shuffleHeroesOrder(this.heroes);
+    this.startedFight = true;
+    let heroesShuffled = this.shuffleHeroesOrder(this._heroes);
     // Tant qu'il n'en reste pas qu'un, on fait les combats
     while (heroesShuffled.length !== 1) {
       // On parcourt les hero dans un ordre aléatoire
@@ -91,7 +106,7 @@ export class ArenaGurubashi {
    */
   levelUp(nbLevel: number = 1): void {
     for(let i = 0; i < nbLevel; i++) {
-      for (const hero of this.heroes) {
+      for (const hero of this._heroes) {
         hero.levelUp();
       }
     }

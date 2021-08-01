@@ -1,1 +1,9 @@
-<p>arena works!</p>
+
+<button class="btn btn-success" (click)="arena.fight()" [disabled]="arena?.startedFight">
+  Start fight
+</button>
+
+<div *ngIf="arena" class="heroes-container">
+  <app-hero *ngFor="let hero of arena.heroes" [hero]="hero" class="hero-element">
+  </app-hero>
+</div>
