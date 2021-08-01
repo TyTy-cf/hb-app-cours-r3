@@ -1,0 +1,183 @@
+<form (ngSubmit)="onSubmit()" #formRace="ngForm" class="col-6">
+
+  <div class="form-group">
+    <input [(ngModel)]="race.name"
+           [name]="'name'"
+           #raceName="ngModel"
+           [class.is-invalid]="raceName.invalid && raceName.touched"
+           class="form-control"
+           placeholder="Name"
+           type="text"
+           required
+    >
+    <div *ngIf="raceName.invalid && (raceName.touched || raceName.dirty)"
+         class="alert-danger"
+    >
+      <div *ngIf="raceName.errors?.required">
+        Name is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="race.code"
+           [name]="'code'"
+           #raceCode="ngModel"
+           [class.is-invalid]="raceCode.invalid && raceCode.touched"
+           class="form-control"
+           placeholder="Code"
+           type="text"
+           maxlength="2"
+           pattern="[A-Z]{2}"
+           required
+    >
+    <div *ngIf="raceCode.invalid && (raceCode.touched || raceCode.dirty)"
+         class="alert-danger"
+    >
+      <div *ngIf="raceCode.errors?.required">
+        Code is required
+      </div>
+      <div *ngIf="raceCode.errors?.pattern">
+        Code have to be at least 2 uppercase letter
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="race.damage"
+           [name]="'damage'"
+           #raceDamage="ngModel"
+           [class.is-invalid]="raceDamage.invalid && raceDamage.touched"
+           class="form-control"
+           placeholder="Damage"
+           type="number"
+           max="1.2"
+           min="0.8"
+           required
+    >
+    <div *ngIf="raceDamage.invalid && (raceDamage.touched || raceDamage.dirty)"
+         class="alert-danger"
+    >
+      <div *ngIf="raceDamage.errors?.required">
+        Damage is required
+      </div>
+      <div *ngIf="raceDamage.errors?.max">
+        Damage coef cannot be higher than 1.2
+      </div>
+      <div *ngIf="raceDamage.errors?.min">
+        Damage coef cannot be smaller than 0.8
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="race.lifePoint"
+           [name]="'lifePoint'"
+           #raceLifePoint="ngModel"
+           [class.is-invalid]="raceLifePoint.invalid && raceLifePoint.touched"
+           class="form-control"
+           placeholder="Life Point"
+           type="number"
+           max="1.2"
+           min="0.8"
+           required
+    >
+    <div *ngIf="raceLifePoint.invalid && (raceLifePoint.touched || raceLifePoint.dirty)"
+         class="alert-danger"
+    >
+      <div *ngIf="raceLifePoint.errors?.required">
+        Life Point is required
+      </div>
+      <div *ngIf="raceLifePoint.errors?.max">
+        Life Point coef cannot be higher than 1.2
+      </div>
+      <div *ngIf="raceDamage.errors?.min">
+        Life Point coef cannot be smaller than 0.8
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="race.criticalStrike"
+           [name]="'criticalStrike'"
+           #raceCriticalStrike="ngModel"
+           [class.is-invalid]="raceCriticalStrike.invalid && raceCriticalStrike.touched"
+           class="form-control"
+           placeholder="Critical Strike"
+           type="number"
+           max="1.2"
+           min="0.8"
+           required
+    >
+    <div *ngIf="raceCriticalStrike.invalid && (raceCriticalStrike.touched || raceCriticalStrike.dirty)"
+         class="alert-danger"
+    >
+      <div *ngIf="raceCriticalStrike.errors?.required">
+        Critical Strike is required
+      </div>
+      <div *ngIf="raceCriticalStrike.errors?.max">
+        Critical Strike coef cannot be higher than 1.2
+      </div>
+      <div *ngIf="raceCriticalStrike.errors?.min">
+        Critical Strike coef cannot be smaller than 0.8
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="race.defense"
+           [name]="'defense'"
+           #raceDefense="ngModel"
+           [class.is-invalid]="raceDefense.invalid && raceDefense.touched"
+           class="form-control"
+           placeholder="Defense"
+           type="number"
+           max="1.2"
+           min="0.8"
+           required
+    >
+    <div *ngIf="raceDefense.invalid && (raceDefense.touched || raceDefense.dirty)"
+         class="alert-danger"
+    >
+      <div *ngIf="raceDefense.errors?.required">
+        Defense is required
+      </div>
+      <div *ngIf="raceDefense.errors?.max">
+        Defense coef cannot be higher than 1.2
+      </div>
+      <div *ngIf="raceDefense.errors?.min">
+        Defense coef cannot be smaller than 0.8
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="raceLifePoint.value" class="alert-danger">
+    <div *ngIf="(raceLifePoint.value + raceDamage.value + raceCriticalStrike.value + raceDefense.value) > 4.2"
+    >
+      Coefficient sum cannot be higher than 4.2
+    </div>
+    <div *ngIf="(raceLifePoint.value + raceDamage.value + raceCriticalStrike.value + raceDefense.value) < 4"
+    >
+      Coefficient sum cannot be smaller than 4
+    </div>
+  </div>
+
+  <button class="btn btn-warning"
+          type="reset"
+          (click)="reset()"
+  >
+    Reset
+  </button>
+
+  <button class="btn btn-success" type="submit"
+          [hidden]="isEdit"
+          [disabled]="formRace.invalid
+              ||
+          (raceLifePoint.value + raceDamage.value + raceCriticalStrike.value + raceDefense.value) > 4.2
+              ||
+          (raceLifePoint.value + raceDamage.value + raceCriticalStrike.value + raceDefense.value) < 4"
+  >
+    Soumettre
+  </button>
+
+</form>

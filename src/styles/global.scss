@@ -1,0 +1,36 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-size: 100%;
+  color: $app-color;
+  background-color: $app-background-color;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.poker {
+  background-color: $poker-background-color !important;
+  color: antiquewhite;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header, .footer {
+  background-color: $app-background-color-common;
+  color: $app-color;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  min-height: 100px;
+}
+
+.main-container {
+  flex-grow: 1;
+}

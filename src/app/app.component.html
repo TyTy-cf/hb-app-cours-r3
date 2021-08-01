@@ -1,0 +1,58 @@
+<div class="app-wrapper">
+  <div class="header row">
+    <h1 class="text-center">HB R3 - Projet Cours</h1>
+    <div>
+      <a routerLink="/year-finder/{{age}}" class="btn btn-primary">
+        Year Finder
+      </a>
+      <a routerLink="/cours-syntaxe" class="btn btn-secondary">
+        Syntaxe Angular
+      </a>
+      <a routerLink="/algo-typescript" class="btn btn-primary">
+        Algo Typescript
+      </a>
+      <a routerLink="/exo-syntaxe" class="btn btn-secondary">
+        Exo Syntaxe
+      </a>
+      <a routerLink="/race" class="btn btn-primary">
+        RPG - Races
+      </a>
+      <a routerLink="/form/hero" class="btn btn-primary">
+        RPG - Heros
+      </a>
+      <a routerLink="/prep-battleground" class="btn btn-secondary">
+        Prep-Battleground
+      </a>
+      <a routerLink="/arena" class="btn btn-primary">
+        Arena
+      </a>
+      <a routerLink="/chess" class="btn btn-secondary">
+        Chess
+      </a>
+      <a routerLink="/yatzee" class="btn btn-primary">
+        Yatzee
+      </a>
+      <a routerLink="/poker" class="btn btn-secondary">
+        Poker
+      </a>
+    </div>
+    <div>
+      <a routerLink="/form/user/template" class="btn btn-warning">
+        Form user template
+      </a>
+      <a routerLink="/form/user/code" class="btn btn-warning">
+        Form user code
+      </a>
+    </div>
+  </div>
+
+  <div class="container main-container">
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="footer">
+    @HB - Projet Cours
+  </div>
+</div>

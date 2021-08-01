@@ -1,0 +1,30 @@
+
+<h2>Exo compteur</h2>
+<div class="row col-8 text-center mt-2">
+  <button class="btn btn-danger" (click)="increment(-5)">-5</button>
+  <button class="btn btn-danger" (click)="increment(-1)">-1</button>
+  <p class="m-0  color-counter"
+     [class]="counterClassCss"
+  >
+    {{counter}}
+  </p>
+  <button class="btn btn-success" (click)="increment(1)">+1</button>
+  <button class="btn btn-success" (click)="increment(5)">+5</button>
+  <button class="btn btn-warning" (click)="reset()">Reset</button>
+</div>
+
+<hr>
+
+<h2>Exo carte du bar</h2>
+
+<div class="col-8 text-center">
+  <ul>
+    <li  class="list-unstyled color-counter"
+         *ngFor="let drink of bar.boissons"
+         [class.default-red]="drink.alcohol"
+         [class.default-green]="!drink.alcohol"
+    >
+      {{drink.name}} - {{drink.price}}€
+    </li>
+  </ul>
+</div>

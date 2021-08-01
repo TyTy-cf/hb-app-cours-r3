@@ -1,0 +1,45 @@
+
+
+<form [formGroup]="userFormGroup">
+
+  <input [formControlName]="'_nickname'"
+         [name]="'nickname'"
+          type="text"
+          class="form-control"
+         placeholder="Nickname"
+         [class.is-invalid]="nickname.invalid && nickname.touched"
+  >
+  <div *ngIf="nickname.invalid && (nickname.dirty || nickname.touched)"
+       class="alert-danger">
+    <div *ngIf="nickname.errors?.required">
+      Nickname is required.
+    </div>
+  </div>
+
+  <input [formControlName]="'_email'"
+         [name]="'email'"
+         type="text"
+         class="form-control"
+         placeholder="Email"
+         [class.is-invalid]="email.invalid && email.touched"
+  >
+  <div *ngIf="email.invalid && (email.dirty || email.touched)"
+       class="alert-danger">
+    <div *ngIf="email.errors?.required">
+      Email is required.
+    </div>
+  </div>
+
+  <button class="btn btn-primary"
+          [disabled]="userFormGroup.invalid"
+          (click)="onSubmit()"
+  >
+    Soumettre
+  </button>
+
+</form>
+
+<div>
+  <p>{{user.nickname}}</p>
+  <p>{{nickname.value}}</p>
+</div>

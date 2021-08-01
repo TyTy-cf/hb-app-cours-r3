@@ -1,3 +1,4 @@
+import {Race} from "./race";
 
 export abstract class Hero {
 
@@ -9,18 +10,33 @@ export abstract class Hero {
   protected _level: number;
   protected _defense: number;
   protected _criticalStrike: number;
+  protected _image: string;
+  protected _className: string;
+  protected _race: Race;
 
   protected constructor(
-    name: string, lifePointMax: number, damageMin: number, damageMax: number, defense: number
+    name: string, lifePointMax: number, damageMin: number,
+    damageMax: number, defense: number, image: string, className: string, race: Race
   ) {
+    this._race = race;
     this._name = name;
-    this._currentLifePoint = lifePointMax;
-    this._lifePointMax = lifePointMax;
-    this._damageMin = damageMin;
-    this._damageMax = damageMax;
-    this._defense = defense;
-    this._criticalStrike = 5;
+    this._currentLifePoint = Math.round(lifePointMax * race.lifePoint);
+    this._lifePointMax = Math.round(lifePointMax * race.lifePoint);
+    this._damageMin = Math.round(damageMin * race.damage);
+    this._damageMax = Math.round(damageMax * race.damage);
+    this._defense = defense * race.defense;
+    this._criticalStrike = 5 * race.criticalStrike;
     this._level = 1;
+    this._image = image;
+    this._className = className;
+  }
+
+  get race(): Race {
+    return this._race;
+  }
+
+  get className(): string {
+    return this._className;
   }
 
   get name(): string {
@@ -55,6 +71,10 @@ export abstract class Hero {
     return this._criticalStrike;
   }
 
+  get image(): string {
+    return this._image;
+  }
+
   levelUp(): void {
     this._level++;
     this._criticalStrike += .25;
@@ -73,6 +93,9 @@ export abstract class Hero {
     }
     damages = Math.round(damages * (100 - target._defense) / 100);
     target._currentLifePoint -= damages;
+    if (target._currentLifePoint < 0) {
+      target._currentLifePoint = 0;
+    }
     console.log('Le hero ' + target._name + ' a subit ' + damages + infoCc);
   }
 

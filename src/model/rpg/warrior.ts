@@ -1,9 +1,10 @@
 import {Hero} from "./hero";
+import {Race} from "./race";
 
 export class Warrior extends Hero {
 
-  constructor(name: string) {
-    super(name, 375, 42, 45, 4);
+  constructor(name: string, race: Race) {
+    super(name, 375, 42, 45, 4, 'assets/rpg/hero/warrior.png', 'Warrior', race);
   }
 
   levelUp() {

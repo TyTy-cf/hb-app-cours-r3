@@ -1,5 +1,5 @@
 
-export abstract class Piece {
+export abstract class AbstractPiece {
 
   protected _color!: string;
   protected _name!: string;

@@ -1,0 +1,15 @@
+
+<div class="d-flex">
+  <img *ngFor="let card of player.hand"
+       [src]="card.image"
+       [alt]="card.name"
+       [hidden]="player.isFolding"
+  >
+</div>
+<p class="mx-auto">{{player.name}}</p>
+<button class="btn btn-warning"
+        (click)="folding()"
+        [hidden]="player.hand.length === 0 || player.isFolding"
+>
+  Fold
+</button>

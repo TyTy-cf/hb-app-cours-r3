@@ -1,0 +1,48 @@
+
+<div class="col-12 text-center mt-3">
+  <h2 class="my-2">
+      Nombre de round : {{yatzee.currentRound}} / 13
+  </h2>
+  <div class="d-flex dice-container mx-auto">
+        <img *ngFor="let dice of yatzee.dice"
+             class="case-size-pieces mx-1"
+             src="{{dice.image}}"
+             alt="{{dice.value}}"
+             [class.highlight-dice]="dice.isSelected"
+             (click)="selectedDice(dice)"
+        >
+  </div>
+  <div class="btn-group my-2" role="group">
+    <button class="btn btn-warning"
+            (click)="rerollDice()"
+            [disabled]="yatzee.numberRoll === 3 || yatzee.currentRound === 13"
+    >
+      Reroll dice ({{yatzee.numberRoll}}/3)
+    </button>
+    <button class="btn btn-primary"
+            (click)="yatzee.keepRoll()"
+            [disabled]="yatzee.numberRoll === 3 || yatzee.currentRound === 13"
+    >
+      Keep this roll
+    </button>
+    <button class="btn btn-success"
+            (click)="rollDice()"
+            [disabled]="yatzee.numberRoll !== 3 || yatzee.currentRound === 13"
+    >
+      Roll dice
+    </button>
+  </div>
+  <div class="my-2">
+    <p>Votre résultat : {{yatzee.currentResult.name}} (+{{yatzee.currentResult.points}})</p>
+    <p [hidden]="yatzee.currentRound !== 13">
+      <strong>
+        Fin de partie !
+      </strong>
+    </p>
+    <p>
+      <strong>
+        Score actuel : {{yatzee.score}}
+      </strong>
+    </p>
+  </div>
+</div>

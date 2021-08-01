@@ -1,0 +1,39 @@
+
+
+$damier-case-size: 11vmin;
+$damier-border-size: 2vmin;
+$color-black : #404040;
+$color-white : #ededed;
+
+.class-white {
+  background-color: $color-white;
+  color: $color-black;
+}
+
+.class-black {
+  background-color: $color-black;
+  color: $color-white;
+}
+
+.selected-case {
+  background-color: aqua;
+}
+
+.ending-case {
+  background-color: darkmagenta;
+}
+
+.case-size {
+  display: inline-block;
+  width: $damier-case-size;
+  height: $damier-case-size;
+  &-pieces {
+    width: $damier-case-size * 0.9;
+    height: $damier-case-size * 0.9;
+  }
+}
+
+.damier {
+  max-width: ($damier-case-size * 8) + (2 * $damier-border-size);
+  border: $damier-border-size double black;
+}

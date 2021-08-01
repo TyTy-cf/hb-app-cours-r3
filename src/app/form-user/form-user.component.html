@@ -1,0 +1,50 @@
+
+<form (ngSubmit)="onSubmit()" #formUser="ngForm">
+
+  <input [(ngModel)]="user.nickname"
+         [name]="'nickname'"
+         #nicknameUser="ngModel"
+         class="form-control"
+         [class.is-invalid]="nicknameUser.touched && !nicknameUser.valid"
+         type="text"
+         placeholder="Nickname"
+         required
+         minlength="5"
+  >
+  <div *ngIf="nicknameUser.invalid && (nicknameUser.dirty || nicknameUser.touched)"
+       class="alert-danger">
+    <div *ngIf="nicknameUser.errors?.required">
+      Nickname is required.
+    </div>
+    <div *ngIf="nicknameUser.errors?.minlength">
+      Nickname must have a least 5 characters.
+    </div>
+  </div>
+
+  <input [(ngModel)]="user.email"
+         [name]="'email'"
+         #emailUser="ngModel"
+         class="form-control"
+         [class.is-invalid]="emailUser.touched && !emailUser.valid"
+         type="email"
+         placeholder="Email"
+         required
+         pattern=".+@[\w\W]*"
+  >
+  <div *ngIf="emailUser.invalid && (emailUser.dirty || emailUser.touched)"
+       class="alert-danger">
+    <div *ngIf="emailUser.errors?.required">
+      Email is required.
+    </div>
+    <div *ngIf="emailUser.errors?.pattern">
+      Email is not valid.
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit"
+      [disabled]="formUser.invalid"
+  >
+    Soumettre
+  </button>
+
+</form>

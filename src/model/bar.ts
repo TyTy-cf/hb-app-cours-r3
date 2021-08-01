@@ -29,6 +29,10 @@ export class Bar {
     this._boissons = boissons;
   }
 
+  get boissons(): Array<Boisson> {
+    return this._boissons;
+  }
+
   displayMenu(): string {
     // Afficher la carte des boissons et des snacks du bar
     // Parcourir mes boissons

@@ -1,0 +1,8 @@
+
+.clickable-tr {
+  cursor: crosshair;
+  &:hover {
+    background-color: lime;
+    color: antiquewhite;
+  }
+}

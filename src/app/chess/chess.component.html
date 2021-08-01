@@ -1,0 +1,18 @@
+
+<div class="d-flex flex-wrap damier mx-auto my-2">
+    <div *ngFor="let oneCase of chessBoard.board"
+         class="case-size text-center"
+         [title]="oneCase.getName()"
+         (click)="chessBoard.movePiece(oneCase)"
+         [class.selected-case]="oneCase.isSelected"
+         [class]="oneCase.color"
+    >
+<!--      [ngClass]="{'selected-case': oneCase.isSelected}"-->
+      <img class="case-size-pieces"
+           [src]="oneCase.piece?.image"
+           [alt]="oneCase.piece?.name"
+           [hidden]="!oneCase.piece"
+      >
+    </div>
+</div>
+

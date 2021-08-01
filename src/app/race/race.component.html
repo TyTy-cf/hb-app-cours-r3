@@ -1,0 +1,47 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        Nom
+      </th>
+      <th>
+        Coef modif LP
+      </th>
+      <th>
+        Coef modif DMG
+      </th>
+      <th>
+        Coef modif DEF
+      </th>
+      <th>
+        Coef modif CRIT
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let race of raceService.races"
+        (click)="editedRace = race"
+        title="Modifier la race {{race.name}}"
+        class="clickable-tr"
+    >
+      <td>
+        {{race.name}}
+      </td>
+      <td>
+        {{race.lifePoint}}
+      </td>
+      <td>
+        {{race.damage}}
+      </td>
+      <td>
+        {{race.defense}}
+      </td>
+      <td>
+        {{race.criticalStrike}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-form-race [race]="editedRace"></app-form-race>
