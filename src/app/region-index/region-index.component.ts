@@ -11,6 +11,9 @@ export class RegionIndexComponent implements OnInit {
 
   regions: Array<IRegion> = [];
 
+  // Sert uniquement à l'Input pour donner le code de la region sélectionnée au component lié
+  selectedCodeRegion: string = '';
+
   constructor(private httpClientRegionService: HttpClientRegionService) { }
 
   ngOnInit(): void {

@@ -21,10 +21,14 @@ https://geo.api.gouv.fr/decoupage-administratif/departements
 Le but de ce component est d'afficher les communes d'un département, lorsque l'on clique sur le nom ou le code... ou le tr
 (Le click se fait depuis le component 'region-show-department')
 
-Cette fois, on accède au component 'department-show-commune' par une route avec paramètre
+Cette fois, on accède au component 'department-show-commune' par une route avec paramètre (nom de la route libre...)
+Le paramètre de la route sera probablement le code du département.
+
 
 (Vous devrez créer une interface Commune)
+
 (Vous devrez créer le service qui va chercher vos communes)
+
 
 https://geo.api.gouv.fr/decoupage-administratif/communes#communes-list
 

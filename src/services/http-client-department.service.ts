@@ -2,17 +2,20 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IDepartment} from "../model/api-gouv/iDepartment";
-import {HttpClientRegionService} from "./http-client-region.service";
+import {sprintf} from "sprintf-js";
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpClientDepartmentServiceService {
+export class HttpClientDepartmentService {
+
+  static urlDepartmentsByRegion = 'https://geo.api.gouv.fr/regions/%s/departements';
 
   constructor(private httpClient: HttpClient) { }
 
   getDepartmentsByCodeRegion(codeRegion: string): Observable<Array<IDepartment>> {
-    let url = HttpClientRegionService.urlRegions + '/' + codeRegion + '/departements';
-    return this.httpClient.get<Array<IDepartment>>(url);
+    return this.httpClient.get<Array<IDepartment>>(
+      sprintf(HttpClientDepartmentService.urlDepartmentsByRegion, codeRegion)
+    );
   }
 }

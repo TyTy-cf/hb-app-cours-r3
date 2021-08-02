@@ -1,0 +1,21 @@
+
+<div *ngIf="codeRegion else noCodeRegion">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments">
+        <td>{{department.nom}}</td>
+        <td>{{department.code}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noCodeRegion>
+  <p>Cliquez sur une région afin d'en afficher les départements</p>
+</ng-template>

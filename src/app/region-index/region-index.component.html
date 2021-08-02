@@ -1,15 +1,27 @@
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Code</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let region of regions">
-      <td>{{region.nom}}</td>
-      <td>{{region.code}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-6">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let region of regions"
+          (click)="selectedCodeRegion = region.code"
+          [class.selected-region]="selectedCodeRegion == region.code"
+      >
+        <td>{{region.nom}}</td>
+        <td>{{region.code}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-6">
+    <app-region-show-department [codeRegion]="selectedCodeRegion"></app-region-show-department>
+  </div>
+</div>
+
+
