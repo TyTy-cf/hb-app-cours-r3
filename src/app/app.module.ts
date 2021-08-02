@@ -23,6 +23,8 @@ import {RaceComponent} from "./race/race.component";
 import { FormRaceComponent } from './form-race/form-race.component';
 import { FormHeroComponent } from './form-hero/form-hero.component';
 import { FormArenaComponent } from './form-arena/form-arena.component';
+import {HttpClientModule} from "@angular/common/http";
+import { RegionIndexComponent } from './region-index/region-index.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +47,15 @@ import { FormArenaComponent } from './form-arena/form-arena.component';
     RaceComponent,
     FormRaceComponent,
     FormHeroComponent,
-    FormArenaComponent
+    FormArenaComponent,
+    RegionIndexComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // Obligatoire pour formulaire par le template
     ReactiveFormsModule, // Obligatoire pour formulaire par le code
+    HttpClientModule // Utiliser pour les requêtes Http
   ],
   providers: [],
   bootstrap: [AppComponent]
