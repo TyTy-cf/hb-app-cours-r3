@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class HttpClientRegionService {
 
-  private static urlRegions = 'https://geo.api.gouv.fr/regions';
+  static urlRegions = 'https://geo.api.gouv.fr/regions';
 
   constructor(private httpClient: HttpClient) { }
 
