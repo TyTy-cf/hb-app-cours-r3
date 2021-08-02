@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input } from '@angular/core';
 import {ArenaGurubashi} from "../../model/rpg/arena_gurubashi";
 
 @Component({
@@ -6,14 +6,9 @@ import {ArenaGurubashi} from "../../model/rpg/arena_gurubashi";
   templateUrl: './arena.component.html',
   styleUrls: ['./arena.component.scss']
 })
-export class ArenaComponent implements OnInit {
+export class ArenaComponent {
 
   @Input()
   arena!: ArenaGurubashi;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

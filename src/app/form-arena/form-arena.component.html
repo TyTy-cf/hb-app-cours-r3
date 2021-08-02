@@ -9,10 +9,10 @@
   <h3>Création des héros</h3>
   <form [formGroup]="formGroupHero">
     <div formArrayName="names">
-      <div *ngFor="let _ of names.controls; index as indexFormControl">
+      <div *ngFor="let _name of names.controls; index as indexFormControl">
         <h4>Hero name #{{indexFormControl + 1}}</h4>
         <div class="input-group my-2">
-          <input [class.is-invalid]="_.invalid && _.touched"
+          <input [class.is-invalid]="_name.invalid && _name.touched"
                  [formControlName]="indexFormControl"
                  placeholder="Name"
                  class="form-control"
@@ -43,4 +43,6 @@
   </form>
 </div>
 
-<app-arena [arena]="arena" [hidden]="!formSubmitted"></app-arena>
+<app-arena [arena]="arena"
+           [hidden]="!formSubmitted"
+></app-arena>
