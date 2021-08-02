@@ -1,0 +1,11 @@
+
+<table class="table table-striped">
+  <thead>
+  <th>Name</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pokemon of pokemons">
+    {{pokemon.name}} (#{{pokemon.order}})
+  </tr>
+  </tbody>
+</table>

@@ -15,6 +15,7 @@ import {RaceComponent} from "./race/race.component";
 import {FormHeroComponent} from "./form-hero/form-hero.component";
 import {FormArenaComponent} from "./form-arena/form-arena.component";
 import {RegionIndexComponent} from "./region-index/region-index.component";
+import {PokemonIndexComponent} from "./pokemon-index/pokemon-index.component";
 
 const routes: Routes = [
   { path: 'exo-syntaxe', component: SyntaxeAngularComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'form/user/code', component: FormUserCodeComponent},
   { path: 'race', component: RaceComponent},
   { path: 'form/hero', component: FormHeroComponent},
-  { path: 'regions', component: RegionIndexComponent }
+  { path: 'regions', component: RegionIndexComponent },
+  { path: 'pokemons', component: PokemonIndexComponent }
 ];
 
 @NgModule({

@@ -26,6 +26,7 @@ import { FormArenaComponent } from './form-arena/form-arena.component';
 import {HttpClientModule} from "@angular/common/http";
 import { RegionIndexComponent } from './region-index/region-index.component';
 import { RegionShowDepartmentComponent } from './region-show-department/region-show-department.component';
+import { PokemonIndexComponent } from './pokemon-index/pokemon-index.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { RegionShowDepartmentComponent } from './region-show-department/region-s
     FormHeroComponent,
     FormArenaComponent,
     RegionIndexComponent,
-    RegionShowDepartmentComponent
+    RegionShowDepartmentComponent,
+    PokemonIndexComponent
   ],
   imports: [
     BrowserModule,
