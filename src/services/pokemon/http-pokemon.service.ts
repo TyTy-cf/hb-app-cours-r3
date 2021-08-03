@@ -16,13 +16,14 @@ export class HttpPokemonService {
 
   getPokemons(): IPokemon[] {
     const pokemons: IPokemon[] = [];
-    this.httpClient.get<IPokemonResults>(HttpPokemonService.urlPokemons).subscribe((jsonPokemon) => {
-      for (const jsonPokemonElement of jsonPokemon.results) {
-        this.httpClient.get<IPokemon>(jsonPokemonElement.url)
-          .subscribe((pokemon) => {
-            pokemons.push(pokemon);
-          });
-      }
+    this.httpClient.get<IPokemonResults>(HttpPokemonService.urlPokemons)
+      .subscribe((jsonPokemon) => {
+        for (const jsonPokemonElement of jsonPokemon.results) {
+          this.httpClient.get<IPokemon>(jsonPokemonElement.url)
+            .subscribe((pokemon) => {
+              pokemons.push(pokemon);
+            });
+        }
     });
     return pokemons;
   }
