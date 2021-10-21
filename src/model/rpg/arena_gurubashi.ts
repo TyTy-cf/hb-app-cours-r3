@@ -6,6 +6,10 @@ export class ArenaGurubashi {
 
   private readonly _heroes: Array<Hero>;
   private _startedFight = false;
+  private _killedOrder = 1;
+  private _maxKilledHero: Hero|undefined = undefined;
+  private _maxDamageHero: Hero|undefined = undefined;
+  private _winner: Hero|undefined = undefined;
 
   /**
    *  Les ... représentent le fait que l'on peut passer 0 au autant que l'on souhaite de paramètres
@@ -30,6 +34,38 @@ export class ArenaGurubashi {
     console.log(this._heroes);
   }
 
+  get winner(): Hero | undefined {
+    return this._winner;
+  }
+
+  set winner(value: Hero | undefined) {
+    this._winner = value;
+  }
+
+  get killedOrder(): number {
+    return this._killedOrder;
+  }
+
+  set killedOrder(value: number) {
+    this._killedOrder = value;
+  }
+
+  get maxKilledHero(): Hero|undefined {
+    return this._maxKilledHero;
+  }
+
+  set maxKilledHero(value: Hero|undefined) {
+    this._maxKilledHero = value;
+  }
+
+  get maxDamageHero(): Hero|undefined {
+    return this._maxDamageHero;
+  }
+
+  set maxDamageHero(value: Hero|undefined) {
+    this._maxDamageHero = value;
+  }
+
   get startedFight(): boolean {
     return this._startedFight;
   }
@@ -46,6 +82,9 @@ export class ArenaGurubashi {
     if (this._heroes.length <= 1) {
       return;
     }
+    this._maxKilledHero = undefined;
+    this._maxDamageHero = undefined;
+    this._winner = undefined;
     this.startedFight = true;
     let heroesShuffled = this.shuffleHeroesOrder(this._heroes);
     // Tant qu'il n'en reste pas qu'un, on fait les combats
@@ -65,9 +104,9 @@ export class ArenaGurubashi {
           // Notre hero tape
           hero.attack(targetHero);
           // Si la cible a des pv > 0, elle peut répliquer
-          if (targetHero.currentLifePoint > 0) {
-            targetHero.attack(hero);
-          }
+          // if (targetHero.currentLifePoint > 0) {
+          //   targetHero.attack(hero);
+          // }
         }
       }
       // Filter pour récupérer un tableau des héros ayant des point de vie > 0
@@ -76,10 +115,23 @@ export class ArenaGurubashi {
       if (tmpShuffledHeroes.length !== heroesShuffled.length) {
         for (const hero of heroesShuffled.filter(filterHero => filterHero.currentLifePoint <= 0)) {
           console.log(hero.name + ' a décédé');
+          hero.killedOrder = this._killedOrder;
+          this._killedOrder++;
         }
       }
       heroesShuffled = this.shuffleHeroesOrder(tmpShuffledHeroes);
     }
+    this.maxDamageHero = this.heroes[0];
+    this.maxKilledHero = this.heroes[0];
+    for (const hero of this.heroes) {
+      if (hero.totalDamage > this.maxDamageHero.totalDamage) {
+        this.maxDamageHero = hero;
+      }
+      if (hero.nbHeroKilled > this.maxKilledHero.nbHeroKilled) {
+        this.maxKilledHero = hero;
+      }
+    }
+    this._winner = heroesShuffled[0];
     console.log('GG à ' + heroesShuffled[0].name);
   }
 

@@ -14,6 +14,9 @@ export abstract class Hero {
   protected _className: string;
   protected _race: Race;
   protected _classColor: string;
+  protected _totalDamage: number;
+  protected _nbHeroKilled: number;
+  protected _killedOrder: number;
 
   protected constructor(
     name: string, lifePointMax: number, damageMin: number,
@@ -31,6 +34,33 @@ export abstract class Hero {
     this._image = image;
     this._className = className;
     this._classColor = classColor;
+    this._totalDamage = 0;
+    this._nbHeroKilled = 0;
+    this._killedOrder = 0;
+  }
+
+  get nbHeroKilled(): number {
+    return this._nbHeroKilled;
+  }
+
+  set nbHeroKilled(value: number) {
+    this._nbHeroKilled = value;
+  }
+
+  get killedOrder(): number {
+    return this._killedOrder;
+  }
+
+  set killedOrder(value: number) {
+    this._killedOrder = value;
+  }
+
+  get totalDamage(): number {
+    return this._totalDamage;
+  }
+
+  set totalDamage(value: number) {
+    this._totalDamage = value;
   }
 
   get classColor(): string {
@@ -101,7 +131,10 @@ export abstract class Hero {
     target._currentLifePoint -= damages;
     if (target._currentLifePoint < 0) {
       target._currentLifePoint = 0;
+      this._nbHeroKilled = this._nbHeroKilled + 1;
+      this.levelUp();
     }
+    this._totalDamage += damages;
     console.log('Le hero ' + target._name + ' a subit ' + damages + infoCc);
   }
 

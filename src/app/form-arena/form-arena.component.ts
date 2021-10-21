@@ -46,8 +46,9 @@ export class FormArenaComponent implements OnInit {
     this.arena = new ArenaGurubashi(
       this.heroMakerService,
       this.randomService,
-      this.formGroupHero.value.names
+      // this.formGroupHero.value.names
+      ['Dominique', 'Jérémy', 'Guillaume', 'Annisa', 'Mouzda', 'Maeva', 'Safia', 'Léo', 'Max', 'Nicolas', 'Lydie', 'Renaud', 'Kevin']
     );
-    this.arena.levelUp(9);
+    this.arena.levelUp(19);
   }
 }

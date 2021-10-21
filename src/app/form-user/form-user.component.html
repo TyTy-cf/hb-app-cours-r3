@@ -3,10 +3,10 @@
 
   <input [(ngModel)]="user.nickname"
          [name]="'nickname'"
+         type="text"
+         [class.is-invalid]="nicknameUser.touched && !nicknameUser.valid"
          #nicknameUser="ngModel"
          class="form-control"
-         [class.is-invalid]="nicknameUser.touched && !nicknameUser.valid"
-         type="text"
          placeholder="Nickname"
          required
          minlength="5"

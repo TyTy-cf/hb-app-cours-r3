@@ -3,7 +3,12 @@
   Start fight
 </button>
 
+<div [hidden]="!arena.maxDamageHero && !arena.maxKilledHero">
+  <p>Winner : {{this.arena.winner?.name}}</p>
+  <p>Le plus de kill : {{this.arena.maxKilledHero?.name}} ({{this.arena.maxKilledHero?.nbHeroKilled}})</p>
+  <p>Le plus de dégâts: {{this.arena.maxDamageHero?.name}} ({{this.arena.maxDamageHero?.totalDamage}})</p>
+</div>
+
 <div *ngIf="arena" class="heroes-container">
-  <app-hero *ngFor="let hero of arena.heroes" [hero]="hero" class="hero-element">
-  </app-hero>
+    <app-hero *ngFor="let hero of arena.heroes" [hero]="hero" class="my-2 col-lg-4 col-sm-12"></app-hero>
 </div>

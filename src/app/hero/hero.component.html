@@ -13,10 +13,10 @@
       {{hero.currentLifePoint}}/{{hero.lifePointMax}}
     </div>
     <div class="row">
-      <div class="col-7">
+      <div class="col-6">
         <img [src]="hero.image" class="image-hero">
       </div>
-      <div class="col-5">
+      <div class="col-6">
         <table class="table table-striped w-100 table-entity">
           <tbody>
           <tr>
@@ -41,6 +41,30 @@
             </th>
             <td>
               {{ hero.defense }}%
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Dégâts
+            </th>
+            <td>
+              {{ hero.totalDamage }}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nb kill
+            </th>
+            <td>
+              {{ hero.nbHeroKilled }}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Death
+            </th>
+            <td>
+              #{{ hero.killedOrder }}
             </td>
           </tr>
           </tbody>

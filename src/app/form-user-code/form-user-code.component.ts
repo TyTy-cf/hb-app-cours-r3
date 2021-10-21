@@ -10,6 +10,7 @@ import {User} from "../../model/user";
 export class FormUserCodeComponent implements OnInit {
 
   userFormGroup!: FormGroup;
+
   user: User = new User();
 
   constructor() { }
@@ -20,6 +21,7 @@ export class FormUserCodeComponent implements OnInit {
         _nickname: new FormControl(
           '', [
             Validators.required,
+            Validators.minLength(5),
           ]
         ),
         _email: new FormControl(
@@ -40,10 +42,8 @@ export class FormUserCodeComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('En soumission de form...');
     this.user.nickname = this.nickname.value;
     this.user.email = this.email.value;
-    console.log(this.user);
   }
 
 }
