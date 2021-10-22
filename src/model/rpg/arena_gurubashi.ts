@@ -9,6 +9,8 @@ export class ArenaGurubashi {
   private _killedOrder = 1;
   private _maxKilledHero: Hero|undefined = undefined;
   private _maxDamageHero: Hero|undefined = undefined;
+  private _maxSingleDmgHero: Hero|undefined = undefined;
+  private _maxNbCritHero: Hero|undefined = undefined;
   private _winner: Hero|undefined = undefined;
 
   /**
@@ -32,6 +34,22 @@ export class ArenaGurubashi {
       );
     }
     console.log(this._heroes);
+  }
+
+  get maxSingleDmgHero(): Hero | undefined {
+    return this._maxSingleDmgHero;
+  }
+
+  set maxSingleDmgHero(value: Hero | undefined) {
+    this._maxSingleDmgHero = value;
+  }
+
+  get maxNbCritHero(): Hero | undefined {
+    return this._maxNbCritHero;
+  }
+
+  set maxNbCritHero(value: Hero | undefined) {
+    this._maxNbCritHero = value;
   }
 
   get winner(): Hero | undefined {
@@ -123,12 +141,20 @@ export class ArenaGurubashi {
     }
     this.maxDamageHero = this.heroes[0];
     this.maxKilledHero = this.heroes[0];
+    this.maxNbCritHero = this.heroes[0];
+    this.maxSingleDmgHero = this.heroes[0];
     for (const hero of this.heroes) {
       if (hero.totalDamage > this.maxDamageHero.totalDamage) {
         this.maxDamageHero = hero;
       }
       if (hero.nbHeroKilled > this.maxKilledHero.nbHeroKilled) {
         this.maxKilledHero = hero;
+      }
+      if (hero.maxDamage > this.maxSingleDmgHero.maxDamage) {
+        this.maxSingleDmgHero = hero;
+      }
+      if (hero.nbCriticalStrike > this.maxNbCritHero.nbCriticalStrike) {
+        this.maxNbCritHero = hero;
       }
     }
     this._winner = heroesShuffled[0];

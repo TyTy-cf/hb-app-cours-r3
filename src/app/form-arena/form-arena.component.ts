@@ -49,6 +49,6 @@ export class FormArenaComponent implements OnInit {
       // this.formGroupHero.value.names
       ['Dominique', 'Jérémy', 'Guillaume', 'Annisa', 'Mouzda', 'Maeva', 'Safia', 'Léo', 'Max', 'Nicolas', 'Lydie', 'Renaud', 'Kevin']
     );
-    this.arena.levelUp(19);
+    this.arena.levelUp(49);
   }
 }

@@ -7,6 +7,8 @@
   <p>Winner : {{this.arena.winner?.name}}</p>
   <p>Le plus de kill : {{this.arena.maxKilledHero?.name}} ({{this.arena.maxKilledHero?.nbHeroKilled}})</p>
   <p>Le plus de dégâts: {{this.arena.maxDamageHero?.name}} ({{this.arena.maxDamageHero?.totalDamage}})</p>
+  <p>Le plus de CC : {{this.arena.maxNbCritHero?.name}} ({{this.arena.maxNbCritHero?.nbCriticalStrike}})</p>
+  <p>Le dégât le plus élevé : {{this.arena.maxSingleDmgHero?.name}} ({{this.arena.maxSingleDmgHero?.maxDamage}})</p>
 </div>
 
 <div *ngIf="arena" class="heroes-container">

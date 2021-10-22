@@ -17,6 +17,8 @@ export abstract class Hero {
   protected _totalDamage: number;
   protected _nbHeroKilled: number;
   protected _killedOrder: number;
+  private _nbCriticalStrike: number;
+  private _maxDamage: number;
 
   protected constructor(
     name: string, lifePointMax: number, damageMin: number,
@@ -37,6 +39,24 @@ export abstract class Hero {
     this._totalDamage = 0;
     this._nbHeroKilled = 0;
     this._killedOrder = 0;
+    this._nbCriticalStrike = 0;
+    this._maxDamage = 0;
+  }
+
+  get nbCriticalStrike(): number {
+    return this._nbCriticalStrike;
+  }
+
+  set nbCriticalStrike(value: number) {
+    this._nbCriticalStrike = value;
+  }
+
+  get maxDamage(): number {
+    return this._maxDamage;
+  }
+
+  set maxDamage(value: number) {
+    this._maxDamage = value;
   }
 
   get nbHeroKilled(): number {
@@ -126,6 +146,7 @@ export abstract class Hero {
     if (this.randomNumber(100) <= this._criticalStrike) {
       damages *= 1.5;
       infoCc = ' (coup critique)';
+      this._nbCriticalStrike++;
     }
     damages = Math.round(damages * (100 - target._defense) / 100);
     target._currentLifePoint -= damages;
@@ -133,6 +154,9 @@ export abstract class Hero {
       target._currentLifePoint = 0;
       this._nbHeroKilled = this._nbHeroKilled + 1;
       this.levelUp();
+    }
+    if (damages > this._maxDamage) {
+      this._maxDamage = damages;
     }
     this._totalDamage += damages;
     console.log('Le hero ' + target._name + ' a subit ' + damages + infoCc);
